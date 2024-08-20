@@ -4092,8 +4092,8 @@ top: calc(90px + var(--navbar-height));
 z-index: 5;
 border-bottom: 1px solid var(--gray-300);
 background: var(--bg-color);
-	left: 59px;
-  top: 120px;
+	left: 58px;
+  top: 118px;
 }
 
 
