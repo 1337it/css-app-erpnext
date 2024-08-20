@@ -83,6 +83,47 @@ margin-bottom: 0px;
 background-color: rgba(255, 255, 255, 0.36);
 border: none;
 }
+	.grid-heading-row {
+border-bottom: 1px solid #d5d5d5;
+color: var(--gray-600);
+background-color: #f5f5f5;
+font-size: var(--text-sm);
+font-weight: var(--weight-regular);
+letter-spacing: .02em;
+height: 32px;
+padding: 0!important;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+
+.bold {
+font-weight: 400!important;
+}
+	
+
+.form-grid {
+border: 1px solid #c8c8c8;
+border-radius: 0;
+color: var(--text-color);
+}	
+	.form-group {
+margin-bottom: 1rem;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.form-group .clearfix {
+width: 33%;
+justify-items: last-baseline;
+}
+
+	.form-group {
+margin-bottom: 1rem;
+display: block;
+flex-direction: row;
+justify-content: space-between;
+}	
 
 .form-tab-content {
 scroll-margin-top: calc(var(--navbar-height) + 52px);
@@ -1954,7 +1995,7 @@ top: 94px !important;
     { 
         scroll-margin-top: calc(var(--navbar-height) + 52px);
         margin-top: 0px!important; 
-        background-color: rgba(255, 255, 255, 0)!important; 
+        background-color: rgba(255, 255, 255, 1)!important; 
     }
 
     
@@ -4485,7 +4526,7 @@ padding: 5px 0px;
 .form-tab-content {
 scroll-margin-top: calc(var(--navbar-height) + 52px);
 margin-top: 0px!important;
-background-color: rgba(255, 255, 255, 0)!important;
+background-color: rgba(255, 255, 255, 1)!important;
 }
 
 .form-tabs-list .form-tabs .nav-item .nav-link {
@@ -4568,8 +4609,9 @@ display: none!important;
 }
 
 .control-label {
-margin-bottom: 6px;
-font-size: calc(var(--text-sm) + 2px)!important;
+margin-bottom: 0px;
+font-size: calc(var(--text-sm) + 0px)!important;
+vertical-align: -webkit-baseline-middle;
 }
 
 .checkbox .label-area
