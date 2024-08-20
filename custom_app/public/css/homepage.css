@@ -4244,7 +4244,10 @@ box-shadow:none!important
 
 
 
-
+.frappe-control .grid-row
+{
+	padding:0;
+}
 
 #global-sidebar:hover {
 left: 0!important;
