@@ -106,6 +106,10 @@ border: 1px solid #c8c8c8;
 border-radius: 0;
 color: var(--text-color);
 }	
+	.form-group .control-input-wrapper {
+width: 64%;
+scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
 	.form-group {
 margin-bottom: 1rem;
 display: flex;
@@ -118,7 +122,7 @@ width: 33%;
 justify-items: last-baseline;
 }
 
-	.form-group {
+	.frappe-control.form-group {
 margin-bottom: 1rem;
 display: block;
 flex-direction: row;
