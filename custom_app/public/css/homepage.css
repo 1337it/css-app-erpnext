@@ -77,6 +77,23 @@ background: 0!important;
 
  
 @media (min-width: 1200px) {
+
+.page-wrapper .form-page .form-section {
+margin-bottom: 0px;
+background-color: rgba(255, 255, 255, 0.36);
+border: none;
+}
+
+.form-tab-content {
+scroll-margin-top: calc(var(--navbar-height) + 52px);
+margin-top: 0px!important;
+background-color: rgba(255, 255, 255, 1)!important;
+padding: 2%;
+/* padding-right: 2%; */
+}
+	
+
+	
 [data-fieldname="totalsticky"] .form-column {
 flex: 100%;
 max-width: 100%;
