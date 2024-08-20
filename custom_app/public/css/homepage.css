@@ -78,11 +78,20 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
-	.col-sm-6 {
+	.secation-body .col-sm-6 {
 flex: 0 0 47%;
 max-width: 47%;
 }
 
+
+	.modal-dialog {
+position: relative;
+width: auto;
+margin: .5rem;
+pointer-events: none;
+max-width: 60%!important;
+display: flex;
+}
 .form-section .section-body{
 	
 column-gap: 6%;
