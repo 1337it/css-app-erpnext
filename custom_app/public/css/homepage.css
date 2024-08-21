@@ -2717,41 +2717,7 @@ box-shadow: 0 0 1px rgba(0, 0, 0, 0), 0 2px 4px rgba(0, 0, 0, 0.09);
 }
 
 
- [data-theme-mode="light"] [data-page-route="Sales Order"] .page-wrapper .layout-side-section {
-background-size: cover;
-/* padding-top: 30px; */
-top: auto;
-display: block;
-order: 2;
-background-color: rgb(255, 255, 255);
-/* margin: 0 0px 0px 30px!important; */
-box-shadow: 0 0 -2px rgba(0, 0, 0, 1), 0 8px 9px rgba(0, 0, 0, 0.29);
-transition: width 0.2s ease-in-out;
-position: absolute;
-bottom: 0;
-height: 10%;
-max-width: calc(100vw - 72px);
-left: 10px;
-right: 10px;
-}
 
-[data-theme-mode="dark"] [data-page-route="Sales Order"] .page-wrapper .layout-side-section {
-background-size: cover;
-/* padding-top: 30px; */
-top: auto;
-display: block;
-order: 2;
-background-color: rgb(255, 255, 255);
-/* margin: 0 0px 0px 30px!important; */
-box-shadow: 0 0 -2px rgba(0, 0, 0, 1), 0 8px 9px rgba(0, 0, 0, 0.29);
-transition: width 0.2s ease-in-out;
-position: absolute;
-bottom: 0;
-height: 10%;
-max-width: calc(100vw - 72px);
-left: 10px;
-right: 10px;
-}
 
    [data-page-route="Workspaces"] .page-wrapper .layout-side-section {
     background-size: cover;
