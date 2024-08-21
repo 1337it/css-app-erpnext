@@ -98,7 +98,7 @@ display: flex;
 }
 .form-section .section-body{
 	
-column-gap: 6%;
+column-gap: 0%;
 
 }
 	
@@ -163,11 +163,7 @@ padding: 2%;
 }
 	
 
-	
-[data-fieldname="totalsticky"] .form-column {
-flex: 100%;
-max-width: 100%;
-}
+
 	.list-item input[type=checkbox] {
 margin: 0;
 scale: 0;
