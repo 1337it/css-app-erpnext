@@ -78,7 +78,7 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
-	.form-column.col-sm-6 .form-group {
+	.form-column.col-sm-6 {
 flex: 0 0 47%;
 max-width: 47%;
 }
