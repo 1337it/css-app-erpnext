@@ -82,7 +82,9 @@ background: 0!important;
 flex: 0 0 47%;
 max-width: 47%;
 }
-
+.list-item__content .ellipsis {
+text-wrap: wrap;
+}
 
 	.modal-dialog {
 position: relative;
@@ -91,6 +93,7 @@ margin: .5rem;
 pointer-events: none;
 max-width: 60%!important;
 display: flex;
+		left:20%;
 }
 .form-section .section-body{
 	
