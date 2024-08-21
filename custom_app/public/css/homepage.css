@@ -78,10 +78,7 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
-	.form-column.col-sm-6 {
-flex: 0 0 47%;
-max-width: 47%;
-}
+
 .list-item__content .ellipsis {
 text-wrap: wrap;
 	padding-left:10px;
