@@ -78,6 +78,50 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
+
+.total .form-control {
+box-shadow: none;
+background-color: var(--bg-color)!important;
+}
+
+	
+.total .like-disabled-input {
+min-height: 0;
+border-radius: var(--border-radius-sm);
+padding: 0;
+cursor: default;
+color: #000000;
+background-color: rgba(249, 249, 249, 0);
+}
+
+	
+
+.total .form-column.col-sm-20 {
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 5px;
+border-right: 1px solid rgba(0, 0, 0, 0.14) !important;
+border-bottom: 1px solid rgba(0, 0, 0, 0.14) !important;
+border-left: 1px solid rgba(0, 0, 0, 0.14) !important;
+}
+
+
+	
+
+.form-section .total .section-body, .form-dashboard-section .section-body {
+width: 100%;
+margin: 0px;
+}
+
+	
+.total .frappe-control .control-value {
+overflow-wrap: break-word;
+background-color: white;
+vertical-align: middle;
+}
+	
+
 .form-column.col-sm-6 {
 flex: 0 0 47%;
 max-width: 47%;
