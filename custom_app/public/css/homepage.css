@@ -136,9 +136,9 @@ position: relative;
 width: auto;
 margin: .5rem;
 pointer-events: none;
-max-width: 66%!important;
+max-width: 60%!important;
 display: flex;
-		left:17%;
+		left:20%;
 }
 .form-section .section-body{
 	
