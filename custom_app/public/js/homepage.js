@@ -828,8 +828,6 @@ var customer = r1.message[0].customer;
 				<td>${customer}</td>
     <td>${element.qty}</td>
 				<td>${element.rate}</td>
-    				<td>${currency}</td>
-                    <td>${supplier}</td>
                                 
 				<td>${frappe.format(element.creation, {'fieldtype': 'Date'}) }</td>
                             </tr>
