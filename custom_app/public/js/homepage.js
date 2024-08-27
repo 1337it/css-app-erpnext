@@ -950,13 +950,13 @@ var dates = r.message.map(function(i) {
                             <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                <th>Date</th>
                                 <th>Voucher Number</th>
-                                <th>User</th>
-				<th>Rate</th>
+				<th>Supplier</th>
     				<th>Currency</th>
-                    <th>Supplier</th>
-                                <th>Qty</th>
-				<th>Date</th>
+                    <th>Qty</th>
+                                <th>Rate</th>
+				<th>Username</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -971,14 +971,14 @@ frappe.call({
                 method: 'frappe.client.get_list',
               args :{
               doctype: 'Purchase Invoice',
-			fields: ['supplier', 'price_list_currency'],
+			fields: ['supplier', 'custom_supplier_currency'],
                 filters: [
                     ["name", "=",  element.parent],
                 ]
               },
 async:false,
                 callback: function(r1) {
-var currency = r1.message[0].price_list_currency;
+var currency = r1.message[0].custom_supplier_currency;
 var supplier = r1.message[0].supplier;
   
               
