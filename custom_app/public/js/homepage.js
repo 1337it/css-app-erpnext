@@ -387,144 +387,7 @@ if (r.message.length > 0){
 
 
 
-frappe.ui.keys.add_shortcut({
-	description: "Sales History",
-    shortcut: 'alt+7',
-    action: () => { 
-	    	
-           
-     var checkmodal = $('body[data-route]').hasClass('modal-open');  
 
-
-           
-if (frappe.get_route()[0] == 'List' && frappe.get_route()[1] == 'Item') 
-{
-
-var curr = $('.list-row-container:focus [data-name]').attr('data-name');
-	
-}
-	else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Item') 
-{
-
-var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
-	
-}
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
-{
-const current_doc = $('.data-row.editable-row').parent().attr("data-name");
-	      const curdoc = (cur_frm.doctype + " Item");
- const item_row = locals[curdoc][current_doc];
-var curr = item_row.item_code;
-}
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
-{
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
-}
-            frappe.call({
-                method: 'frappe.client.get_list',
-              args :{
-              doctype: 'Sales Invoice Item',
-		      parent: 'Sales Invoice',
-			fields: ['parent', 'owner', 'qty', 'rate', 'creation'],
-                filters: [
-                    ["item_name", "=",  curr],
-                ],
-		      order_by: 'creation desc'
-              },
-                callback: function(r) {
-var rates = r.message.map(function(i) {
-  return i.rate;
-});
-var dates = r.message.map(function(i) {
-  return i.creation;
-});
-
-        console.log(rates);
-	
-                    if (r.message.length > 0) {
-
-			        const data = {
-        labels: dates,
-        datasets: [
-            {
-                name: "Some Data", type: "bar",
-                values: rates
-            }
-        ]
-    };
-
-    const option = {
-        title: "Trends",
-        data: data,
-        type: 'axis-mixed', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 250,
-        colors: ['#7cd6fd', '#743ee2']
-    };
-
-
-			    
-                        const d = new frappe.ui.Dialog({
-                            title: __('Sales History'),
-                            width: 400
-                        });
-			
-                        $(`
-       <div class="modal-body ui-front">
-        <div id="sample-chart">
-                </div>
-                            <h2>${curr}</h2>
-                            <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                <th>Voucher Number</th>
-                                <th>User</th>
-				<th>Rate</th>
-                                <th>Qty</th>
-				<th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                            </table>
-                        </div>`).appendTo(d.body);
-			    frappe.utils.make_chart(d.$wrapper.find("#sample-chart")[0], option);
-                        r.message.forEach(element => {
-                            const tbody = $(d.body).find('tbody');
-                            const tr = $(`
-                            <tr>
-                                <td>${element.parent}</td>
-                                <td>${element.owner}</td>
-				<td>${element.rate}</td>
-                                <td>${element.qty}</td>
-				<td>${frappe.format(element.creation, {'fieldtype': 'Date'}) }</td>
-                            </tr>
-                            `).appendTo(tbody)
-                            tbody.find('.check-warehouse').on('change', function() {
-                                $('input.check-warehouse').not(this).prop('checked', false);  
-
-
-                            });
-                        });
-			     frappe.ui.keys.on('escape', function() {
-     d.hide();
-				$('[data-name="'+curr+'"]').parent().parent().parent().parent().parent().focus();
-});
-                        d.set_primary_action("Close", function() {
-       d.hide();
-				$('[data-name="'+curr+'"]').parent().parent().parent().parent().parent().focus();
-                        });
-                        d.show();  
-                         d.$wrapper.find('.modal-dialog').css("width", "90%");
-			    
-                    }
-              }
-            });     
-    },
-    page: this.page,
-    description: __('Sales History'),
-    ignore_inputs: true,
-    
-});
 
 
 
@@ -834,6 +697,169 @@ var supplier = r1.message[0].supplier;
     
 });
       
+
+frappe.ui.keys.add_shortcut({
+	description: "Sales History",
+    shortcut: 'alt+7',
+    action: () => { 
+	    	
+
+
+        var checkmodal = $('body[data-route]').hasClass('modal-open');  
+
+
+           
+if (frappe.get_route()[0] == 'List' && frappe.get_route()[1] == 'Item') 
+{
+
+var curr = $('.list-row-container:focus [data-name]').attr('data-name');
+	
+}
+	else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Item') 
+{
+
+var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
+	
+}
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+{
+const current_doc = $('.data-row.editable-row').parent().attr("data-name");
+	      const curdoc = (cur_frm.doctype + " Item");
+ const item_row = locals[curdoc][current_doc];
+var curr = item_row.item_code;
+}
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+{
+var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+}
+
+            frappe.call({
+                method: 'frappe.client.get_list',
+              args :{
+              doctype: 'Sales Invoice Item',
+		      parent: 'Sales Invoice',
+			fields: ['parent', 'owner', 'qty', 'rate', 'creation'],
+                filters: [
+                    ["item_name", "=",  curr],
+                ],
+		      order_by: 'creation desc'
+              },
+                callback: function(r) {
+var rates = r.message.map(function(i) {
+  return i.rate;
+});
+var dates = r.message.map(function(i) {
+  return i.creation;
+});
+
+        console.log(rates);
+	
+                    if (r.message.length > 0){
+
+			        const data = {
+        labels: dates,
+        datasets: [
+            {
+                name: "Some Data", type: "bar",
+                values: rates
+            }
+        ]
+    };
+
+    const option = {
+        title: "Trends",
+        data: data,
+        type: 'axis-mixed', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+        height: 250,
+        colors: ['#7cd6fd', '#743ee2']
+    };
+
+
+			    
+                        const d = new frappe.ui.Dialog({
+                            title: __('Sales History'),
+                            width: 400
+                        });
+			
+                        $(`
+       <div class="modal-body ui-front">
+        <div id="sample-chart">
+                </div>
+                            <h2>${curr}</h2>
+                            <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th>Voucher Number</th>
+                                <th>User</th>
+				<th>Customer</th>
+                          <th>Qty</th>
+				<th>Rate</th>
+				<th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            </table>
+                        </div>`).appendTo(d.body);
+			    frappe.utils.make_chart(d.$wrapper.find("#sample-chart")[0], option);
+                      
+                        r.message.forEach(element => {
+
+frappe.call({
+                method: 'frappe.client.get_list',
+              args :{
+              doctype: 'Sales Invoice',
+			fields: ['customer'],
+                filters: [
+                    ["name", "=",  element.parent],
+                ]
+              },
+async:false,
+                callback: function(r1) {
+var customer = r1.message[0].customer;
+  
+              
+                            
+                            const tbody = $(d.body).find('tbody');
+                            const tr = $(`
+                            <tr>
+                                <td>${element.parent}</td>
+                                <td>${element.owner}</td>
+				<td>${customer}</td>
+    <td>${element.qty}</td>
+				<td>${element.rate}</td>
+    				<td>${currency}</td>
+                    <td>${supplier}</td>
+                                
+				<td>${frappe.format(element.creation, {'fieldtype': 'Date'}) }</td>
+                            </tr>
+                            `).appendTo(tbody)
+                }
+});
+                        });
+			     frappe.ui.keys.on('escape', function() {
+     d.hide();
+				$('[data-name="'+curr+'"]').parent().parent().parent().parent().parent().focus();
+});
+                        d.set_primary_action("Close", function() {
+       d.hide();
+				$('[data-name="'+curr+'"]').parent().parent().parent().parent().parent().focus();
+                        });
+                        d.show();  
+                         d.$wrapper.find('.modal-dialog').css("width", "90%");
+			    
+                    }
+              }
+            });   
+    },
+    page: this.page,
+    description: __('Sales History'),
+    ignore_inputs: true,
+    
+});
+
+
+
 
 frappe.ui.keys.add_shortcut({
 	description: "Purchase History",
