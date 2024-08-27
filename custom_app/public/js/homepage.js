@@ -947,14 +947,14 @@ frappe.call({
                 method: 'frappe.client.get_list',
               args :{
               doctype: 'Purchase Invoice',
-			fields: ['supplier', 'currency'],
+			fields: ['supplier', 'price_list_currency'],
                 filters: [
                     ["name", "=",  element.parent],
                 ]
               },
 async:false,
                 callback: function(r1) {
-var currency = r1.message[0].currency;
+var currency = r1.message[0].price_list_currency;
 var supplier = r1.message[0].supplier;
   
               
