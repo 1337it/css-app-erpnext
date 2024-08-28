@@ -17,6 +17,11 @@
 }
 
 @media (max-width: 1199px) {
+	.widget.custom-block-widget-box {
+position: relative;
+padding: 0px!important;
+}
+
 #formclose
 {
 	display:none;
