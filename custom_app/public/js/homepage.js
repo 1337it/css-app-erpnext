@@ -216,8 +216,16 @@ var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
                             title: __('Item Image'),
                             width: 400
                         });
-		   
-                        $(`<img src="${it.message.image}">`).appendTo(d.body);
+		   if(it.message.image)
+		   {
+                        $(`<img src="${it.message.image}" style="max-height:66vh;max-width:66vw;">`).appendTo(d.body);
+		   }
+else {
+$(`<a>Image Not Available</a>`).appendTo(d.body);
+}
+
+
+
                       
 			     frappe.ui.keys.on('escape', function() {
      d.hide();
