@@ -218,7 +218,7 @@ var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
                         });
 		   if(it.message.image)
 		   {
-                        $(`<img src="${it.message.image}" style="max-height:66vh;max-width:66vw;">`).appendTo(d.body);
+                        $(`<img src="${it.message.image}" style="max-height:66vh;max-width:66vw;margin-left:auto;margin-right:auto;display:block;">`).appendTo(d.body);
 		   }
 else {
 $(`<a>Image Not Available</a>`).appendTo(d.body);
