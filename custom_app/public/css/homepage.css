@@ -82,6 +82,9 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+	[data-fieldname="totalsticky"] .section-body {
+display: none;
+}
 .col-md-12 {
 flex: auto;
 }
