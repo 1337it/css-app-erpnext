@@ -197,7 +197,7 @@ justify-content: space-between;
 }
 
 .form-group .clearfix {
-width: 33%;
+
 justify-items: last-baseline;
 }
 
@@ -2796,6 +2796,9 @@ margin-right: 10px;
    [data-route^="List/"] .page-wrapper .frappe-card .page-form{
 padding-left: 0px!important;
 padding-right: 0vw!important;
+}
+.form-group {
+margin-bottom: 0 !important;
 }
     .page-form .standard-filter-section .form-group {
     min-width: 14.6667vw;
