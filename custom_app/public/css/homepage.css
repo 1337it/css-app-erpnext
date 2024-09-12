@@ -21,7 +21,9 @@
 position: relative;
 padding: 0px!important;
 }
-
+.grid-row.total .form-group {
+text-align: center;
+}
 #formclose
 {
 	display:none;
@@ -122,6 +124,7 @@ border-left: 1px solid rgba(0, 0, 0, 0.14) !important;
 .form-section .total .section-body, .form-dashboard-section .section-body {
 width: 100%;
 margin: 0px;
+	border: 1px solid rgba(0, 0, 0, 0.48);
 }
 
 	
