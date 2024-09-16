@@ -84,6 +84,15 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+	.total .form-column.col-sm-2 {
+position: relative;
+width: 20%;
+padding-right: 15px;
+padding-left: 5px;
+border-right: 1px solid rgba(0, 0, 0, 0.14) !important;
+border-bottom: 1px solid rgba(0, 0, 0, 0.14) !important;
+border-left: 1px solid rgba(0, 0, 0, 0.14) !important;
+}
 	[data-fieldname="totalsticky"] .section-body {
 display: none;
 }
