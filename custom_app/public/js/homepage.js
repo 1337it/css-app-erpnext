@@ -1233,7 +1233,7 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length == 1)
 {
 var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
 }
@@ -1241,7 +1241,7 @@ var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
             frappe.call({
                 method: 'erpnext.stock.dashboard.item_dashboard.get_data',
                 args: {
-                    item_code: item_row.item_code,
+                    item_code: curr,
                 },
                 callback: function(r) {
                     if (r.message.length > 0){
