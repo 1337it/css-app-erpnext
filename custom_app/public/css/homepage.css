@@ -84,14 +84,14 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
-	[data-page-route="Sales Order"] [data-fieldname="section_break_30"] [data-fieldname^="custom"].col-sm-2 {
+	[data-page-route="Sales Invoice"] [data-fieldname="section_break_30"] [data-fieldname^="custom"].col-sm-2 {
 flex-wrap: 0 0 16.66666667%;
 max-width: 16.66666667%;
 position: sticky;
 overflow: visible;
 bottom: 0;
 }
-		[data-page-route="Sales Invoice"] [data-fieldname="section_break_31"] [data-fieldname^="custom"].col-sm-2 {
+		[data-page-route="Sales Order"] [data-fieldname="section_break_31"] [data-fieldname^="custom"].col-sm-2 {
 flex-wrap: 0 0 16.66666667%;
 max-width: 16.66666667%;
 position: sticky;
