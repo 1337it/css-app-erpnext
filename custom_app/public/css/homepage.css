@@ -84,6 +84,12 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+	.form-section .section-body {
+width: 100%;
+margin: 20px;
+align-items: stretch;
+justify-content: space-between;
+}
 [data-page-route="Sales Invoice"] [data-fieldname="section_break_30"] [data-fieldname^="custom"].col-sm-2 {
 flex: 0 0 20% !important;
 max-width: 20%;
