@@ -84,24 +84,33 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
-	[data-page-route="Sales Invoice"] [data-fieldname="section_break_30"] [data-fieldname^="custom"].col-sm-2 {
-flex-wrap: 0 0 16.66666667%;
-max-width: 16.66666667%;
+[data-page-route="Sales Invoice"] [data-fieldname="section_break_30"] [data-fieldname^="custom"].col-sm-2 {
+flex: 0 0 20% !important;
+max-width: 20%;
 position: sticky;
 overflow: visible;
 bottom: 0;
+margin-top: 20px;
+background-color: white;
+border: 1px solid rgba(128, 128, 128, 0.19);
+box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px, rgba(0, 0, 0, 0.06) 0px 1px 1px 0px
 }
 		[data-page-route="Sales Order"] [data-fieldname="section_break_31"] [data-fieldname^="custom"].col-sm-2 {
-flex-wrap: 0 0 16.66666667%;
-max-width: 16.66666667%;
+flex: 0 0 20% !important;
+max-width: 20%;
 position: sticky;
 overflow: visible;
 bottom: 0;
+margin-top: 20px;
+background-color: white;
+border: 1px solid rgba(128, 128, 128, 0.19);
+box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px, rgba(0, 0, 0, 0.06) 0px 1px 1px 0px
 }
 
 	[data-fieldname="column_totals"] {
 flex: 0 0 100%;
 max-width: 100%;
+		padding: 0;
 }
 	.total .form-column.col-sm-2 {
 position: relative;
