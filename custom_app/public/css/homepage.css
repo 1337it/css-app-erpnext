@@ -350,18 +350,18 @@ padding-left: 30px;
 font-size:20px;
 	}
 .list-item--head {
-    background-color: var(--dt-border-color);
-    border-bottom: none;
+
+    border-bottom: 1px solid rgba(128, 128, 128, 0.37);
     cursor: auto;
 }
 
 .list-item {
   display: flex;
-align-items: end;
+align-items: center;
 cursor: pointer;
 height: 35px;
 padding-left: 0px;
-font-size: 12px;
+font-size: 13px;
 font-weight: 300;
 letter-spacing: px;
 color: #000000;
