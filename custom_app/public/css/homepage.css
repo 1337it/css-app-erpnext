@@ -635,6 +635,7 @@ text-align: center;
         border-left: 3px solid #ed152b;
 }
 	.list-row-container:focus {
+		background-color: var(--gray-300);
 		border-left: 3px solid #ed152b;
 	}
 
