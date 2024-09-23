@@ -264,7 +264,7 @@ padding: 2%;
 	
 
 
-	.list-item input[type=checkbox] {
+	#queryitem .list-item input[type=checkbox] {
 margin: 0;
 scale: 0;
 }
