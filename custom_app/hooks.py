@@ -116,7 +116,8 @@ home_page = "index"
 # hooks.py
 
 override_whitelisted_methods = {
-	"erpnext.controllers.queries.item_query": "custom_app.controllers.queries.item_query"
+	"erpnext.controllers.queries.item_query": "custom_app.controllers.queries.item_query",
+	"erpnext.controllers.stock_controller.validate_warehouse":"erpnext.controllers.stock_controller.validate_warehouse"
 }
 # Document Events
 # ---------------
