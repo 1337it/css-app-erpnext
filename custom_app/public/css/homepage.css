@@ -2521,7 +2521,7 @@ justify-content: center;
   top: 10px;
 /* right: 0; */
 left: 10px;
-width: 100%;
+width: calc(100% - 20px);
 box-shadow: 0 0 1px rgba(0, 0, 0, 0), 0 2px 4px rgba(0, 0, 0, 0.09);
 padding: 10px;
 }
@@ -4151,9 +4151,7 @@ background: transparent!important;
 }
 
 
- .main-section #body #page-List\/Item\/List .page-body{
- width:100vw !important;
-}
+ 
  #page-List\/Item\/List .page-body{
  margin-left:0px;
  margin-right:0px;
@@ -4272,7 +4270,7 @@ text-align: center;
 	background:rgba(255, 255, 255, 0)!important;
 height: 100%;
 position: fixed;
-width: 100%;
+width: 20vw;
 left: 48px!important;
 	top: var(--navbar-height);
 }
