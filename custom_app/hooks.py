@@ -112,7 +112,7 @@ home_page = "index"
 
 override_doctype_class = {
 	"Sales Order": "custom_app.selling.doctype.sales_order.sales_order.SalesOrder",
-	"Sales Order": "custom_app.stock.doctype.pick_list.pick_list.PickList"
+	"Pick List": "custom_app.stock.doctype.pick_list.pick_list.PickList"
  }
 # hooks.py
 
