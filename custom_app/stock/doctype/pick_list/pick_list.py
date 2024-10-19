@@ -1064,11 +1064,23 @@ def get_available_item_locations_for_other_item(
 	bin2 = frappe.qb.DocType("Bin")
 	query = (
 		frappe.qb.from_(bin)
-		.select(bin.warehouse, (frappe.qb.from_(bin2) .select(bin2.actualy_qty) .where((bin2.warehouse == bin.warehouse) && (bin2.actualy_qty > 0) && (bin2.item_code == item_code))).as_("qty"))
+		.select(bin.warehouse, (
+			frappe.qb.from_(bin2)
+			.select(bin2.actualy_qty)
+			.where((bin2.warehouse == bin.warehouse) && (bin2.actualy_qty > 0) && (bin2.item_code == item_code))).as_("qty"))
 		.where(bin.company == company)
 		.orderby(bin.rank)
 	)
-	
+
+	if from_warehouses:
+		query = query.where(bin.warehouse.isin(from_warehouses))
+	else:
+		wh = frappe.qb.DocType("Warehouse")
+		query = query.from_(wh).where((bin.warehouse == wh.name) & (wh.company == company))
+
+	if not consider_rejected_warehouses:
+		if rejected_warehouses := get_rejected_warehouses():
+			query = query.where(bin.warehouse.notin(rejected_warehouses))
 	
 	item_locations = query.run(as_dict=True)
 
