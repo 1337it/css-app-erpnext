@@ -1070,7 +1070,7 @@ def get_available_item_locations_for_other_item(
 		query = query.where(bin.warehouse.isin(from_warehouses))
 	else:
 		wh = frappe.qb.DocType("Warehouse")
-		query = query.from_(wh).where((bin.warehouse == wh.name) & (wh.company == company))
+		query = query.from_(wh).where((bin.warehouse == wh.name))
 
 	if not consider_rejected_warehouses:
 		if rejected_warehouses := get_rejected_warehouses():
