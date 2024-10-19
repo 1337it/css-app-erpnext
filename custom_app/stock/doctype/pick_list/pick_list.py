@@ -1060,23 +1060,16 @@ def get_available_item_locations_for_other_item(
 	company,
 	consider_rejected_warehouses=False,
 ):
-	bin = frappe.qb.DocType("Company")
+	bin = frappe.qb.DocType("Pick Rule")
+	bin2 = frappe.qb.DocType("Bin")
 	query = (
 		frappe.qb.from_(bin)
-		.select(bin.custom_p1, bin.custom_p2, bin.custom_p3, bin.custom_p4, bin.custom_p5, bin.custom_p6, bin.custom_p7, bin.custom_p8, bin.custom_p9, bin.custom_p10, bin.custom_p11, bin.custom_p12)
-		.where(bin.name == company)
+		.select(bin.warehouse, (frappe.qb.from_(bin2) .select(bin2.actualy_qty) .where((bin2.warehouse == bin.warehouse) && (bin2.actualy_qty > 0) && (bin2.item_code == item_code))).as_("qty"))
+		.where(bin.company == company)
+		.orderby(bin.rank)
 	)
 	
-	if from_warehouses:
-		query = query.where((bin.custom_p1, bin.custom_p2, bin.custom_p3, bin.custom_p4, bin.custom_p5, bin.custom_p6, bin.custom_p7, bin.custom_p8, bin.custom_p9, bin.custom_p10, bin.custom_p11, bin.custom_p12).isin(from_warehouses))
-	else:
-		wh = frappe.qb.DocType("Warehouse")
-		query = query.from_(wh).where(((bin.custom_p1, bin.custom_p2, bin.custom_p3, bin.custom_p4, bin.custom_p5, bin.custom_p6, bin.custom_p7, bin.custom_p8, bin.custom_p9, bin.custom_p10, bin.custom_p11, bin.custom_p12) == wh.name) & (wh.company == company))
-
-	if not consider_rejected_warehouses:
-		if rejected_warehouses := get_rejected_warehouses():
-			query = query.where(bin.warehouse.notin(rejected_warehouses))
-
+	
 	item_locations = query.run(as_dict=True)
 
 	return item_locations
