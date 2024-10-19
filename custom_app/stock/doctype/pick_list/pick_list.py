@@ -926,7 +926,6 @@ def get_available_item_locations_for_serial_and_batched_item(
 	item_code,
 	from_warehouses,
 	required_qty,
-	company,
 	consider_rejected_warehouses=False,
 ):
 	# Get batch nos by FIFO
@@ -1012,7 +1011,6 @@ def get_available_item_locations_for_serialized_item(
 def get_available_item_locations_for_batched_item(
 	item_code,
 	from_warehouses,
-	company,
 	consider_rejected_warehouses=False,
 ):
 	locations = []
