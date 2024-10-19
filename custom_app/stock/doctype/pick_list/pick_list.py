@@ -439,8 +439,8 @@ class PickList(Document):
 				get_available_item_locations(
 					item_code,
 					from_warehouses,
-					company,
 					self.item_count_map.get(item_code),
+					self.company,
 					picked_item_details=picked_items_details.get(item_code),
 					consider_rejected_warehouses=self.consider_rejected_warehouses,
 				),
