@@ -1051,25 +1051,16 @@ def get_available_item_locations_for_batched_item(
 def get_available_item_locations_for_other_item(
 	item_code,
 	from_warehouses,
+	company,
 	consider_rejected_warehouses=False,
 ):
-	bin = frappe.qb.DocType("Bin")
+	bin = frappe.qb.DocType("Company")
 	query = (
 		frappe.qb.from_(bin)
-		.select(bin.warehouse, bin.actual_qty.as_("qty"))
-		.where((bin.item_code == item_code) & (bin.actual_qty > 0))
-		.orderby(bin.creation)
+		.select(bin.custom_picking_priority.warehouse)
+		.where(bin.name == company)
+		.orderby(bin.custom_picking_priority.idx)
 	)
-
-	if from_warehouses:
-		query = query.where(bin.warehouse.isin(from_warehouses))
-	else:
-		wh = frappe.qb.DocType("Warehouse")
-		query = query.from_(wh).where((bin.warehouse == wh.name))
-
-	if not consider_rejected_warehouses:
-		if rejected_warehouses := get_rejected_warehouses():
-			query = query.where(bin.warehouse.notin(rejected_warehouses))
 
 	item_locations = query.run(as_dict=True)
 
