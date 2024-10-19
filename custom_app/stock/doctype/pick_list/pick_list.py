@@ -1057,9 +1057,8 @@ def get_available_item_locations_for_other_item(
 	bin = frappe.qb.DocType("Company")
 	query = (
 		frappe.qb.from_(bin)
-		.select(bin.custom_picking_priority.warehouse)
+		.select(bin.p1, bin.p2, bin.p3, bin.p4, bin.p5, bin.p6, bin.p7, bin.p8, bin.p9, bin.p10, bin.p11, bin.p12)
 		.where(bin.name == company)
-		.orderby(bin.custom_picking_priority.idx)
 	)
 
 	item_locations = query.run(as_dict=True)
