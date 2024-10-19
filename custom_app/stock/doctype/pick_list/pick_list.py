@@ -1067,7 +1067,7 @@ def get_available_item_locations_for_other_item(
 		.select(bin.warehouse, (
 			frappe.qb.from_(bin2)
 			.select(bin2.actualy_qty)
-			.where((bin2.warehouse == bin.warehouse) && (bin2.actualy_qty > 0) && (bin2.item_code == item_code))).as_("qty"))
+			.where(bin2.warehouse == bin.warehouse) & (bin2.actualy_qty > 0) & (bin2.item_code == item_code)).as_("qty"))
 		.where(bin.company == company)
 		.orderby(bin.rank)
 	)
