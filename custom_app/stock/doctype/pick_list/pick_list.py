@@ -1058,33 +1058,31 @@ def get_available_item_locations_for_other_item(
 	company,
 	consider_rejected_warehouses=False,
 ):
-	bin = frappe.qb.DocType("Pick Rule")
-	
+	bim = frappe.qb.DocType("Pick Rule")
 	query = (
-		frappe.qb.from_(bin)
-		.select(bin.warehouse)
-		.where(bin.company == company)
-		.orderby(bin.rank)
-	)
-bin2 = frappe.qb.DocType("Bin")
-query = (
-			frappe.qb.from_(bin2)
-			.select(bin2.actual_qty.as_("qty"))
-			.where((bin2.item_code == item_code) and (bin2.actual_qty > 0) and (bin2.warehouse == bin.warehouse))
-.orderby(bin.creation)
+		frappe.qb.from_(bim)
+		.select(bim.warehouse)
+		.where((bim.company == company)
+		.orderby(bim.rank)
 	)
 
-
+	bin = frappe.qb.DocType("Bin")
+		query = (
+			frappe.qb.from_(bin)
+			.select(bin.actual_qty.as_("qty"))
+			.where((bin.item_code == item_code) & (bin.actual_qty > 0) & (bin.warehouse == bim.warehouse)
+			.orderby(bin.creation)
+		)
 
 	if from_warehouses:
-		query = query.where(bin.warehouse.isin(from_warehouses))
+		query = query.where(bim.warehouse.isin(from_warehouses))
 	else:
 		wh = frappe.qb.DocType("Warehouse")
-		query = query.from_(wh).where((bin.warehouse == wh.name) & (wh.company == company))
+		query = query.from_(wh).where((bim.warehouse == wh.name) & (wh.company == company))
 
 	if not consider_rejected_warehouses:
 		if rejected_warehouses := get_rejected_warehouses():
-			query = query.where(bin.warehouse.notin(rejected_warehouses))
+			query = query.where(bim.warehouse.notin(rejected_warehouses))
 	
 	item_locations = query.run(as_dict=True)
 
