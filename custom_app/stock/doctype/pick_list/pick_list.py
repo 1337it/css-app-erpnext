@@ -439,6 +439,7 @@ class PickList(Document):
 				get_available_item_locations(
 					item_code,
 					from_warehouses,
+					company,
 					self.item_count_map.get(item_code),
 					picked_item_details=picked_items_details.get(item_code),
 					consider_rejected_warehouses=self.consider_rejected_warehouses,
@@ -818,6 +819,7 @@ def get_available_item_locations(
 		locations = get_available_item_locations_for_serial_and_batched_item(
 			item_code,
 			from_warehouses,
+			company,
 			required_qty,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
@@ -825,12 +827,14 @@ def get_available_item_locations(
 		locations = get_available_item_locations_for_serialized_item(
 			item_code,
 			from_warehouses,
+			company,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
 	elif has_batch_no:
 		locations = get_available_item_locations_for_batched_item(
 			item_code,
 			from_warehouses,
+			company,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
 	else:
@@ -925,6 +929,7 @@ def get_available_item_locations_for_serial_and_batched_item(
 	item_code,
 	from_warehouses,
 	required_qty,
+	company,
 	consider_rejected_warehouses=False,
 ):
 	# Get batch nos by FIFO
@@ -962,6 +967,7 @@ def get_available_item_locations_for_serial_and_batched_item(
 def get_available_item_locations_for_serialized_item(
 	item_code,
 	from_warehouses,
+	company,
 	consider_rejected_warehouses=False,
 ):
 	sn = frappe.qb.DocType("Serial No")
@@ -1009,6 +1015,7 @@ def get_available_item_locations_for_serialized_item(
 def get_available_item_locations_for_batched_item(
 	item_code,
 	from_warehouses,
+	company,
 	consider_rejected_warehouses=False,
 ):
 	locations = []
