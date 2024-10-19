@@ -805,7 +805,6 @@ def get_available_item_locations(
 	item_code,
 	from_warehouses,
 	required_qty,
-	company,
 	ignore_validation=False,
 	picked_item_details=None,
 	consider_rejected_warehouses=False,
@@ -819,7 +818,6 @@ def get_available_item_locations(
 		locations = get_available_item_locations_for_serial_and_batched_item(
 			item_code,
 			from_warehouses,
-			company,
 			required_qty,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
@@ -827,21 +825,18 @@ def get_available_item_locations(
 		locations = get_available_item_locations_for_serialized_item(
 			item_code,
 			from_warehouses,
-			company,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
 	elif has_batch_no:
 		locations = get_available_item_locations_for_batched_item(
 			item_code,
 			from_warehouses,
-			company,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
 	else:
 		locations = get_available_item_locations_for_other_item(
 			item_code,
 			from_warehouses,
-			company,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
 
