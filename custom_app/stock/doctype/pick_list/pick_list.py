@@ -1055,7 +1055,6 @@ def get_available_item_locations_for_batched_item(
 def get_available_item_locations_for_other_item(
 	item_code,
 	from_warehouses,
-	company,
 	consider_rejected_warehouses=False,
 ):
 	bin = frappe.qb.DocType("Bin")
