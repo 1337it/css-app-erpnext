@@ -1063,6 +1063,7 @@ def get_available_item_locations_for_other_item(
 		.select(bin.warehouse, bin.actual_qty.as_("qty"))
 		.where((bin.item_code == item_code) & (bin.actual_qty > 0))
 		.orderby(bin.picking_rank)
+		.orderby(bin.creation)
 
 	)
 
