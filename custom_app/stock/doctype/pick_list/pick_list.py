@@ -838,7 +838,6 @@ def get_available_item_locations(
 		locations = get_available_item_locations_for_other_item(
 			item_code,
 			from_warehouses,
-			company,
 			consider_rejected_warehouses=consider_rejected_warehouses,
 		)
 
