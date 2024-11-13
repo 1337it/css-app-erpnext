@@ -272,7 +272,7 @@ border-radius: var(--border-radius-sm);
 padding: 0;
 cursor: default;
 color: #000000;
-background-color: rgba(249, 249, 249, 0);
+background-color: var(--subtle-fg);
 }
 
 	
@@ -356,14 +356,13 @@ border-radius: 0;
 color: var(--text-color);
 }	
 	.col-sm-6 .form-group .control-input-wrapper {
-width: 64%;
 scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
 }
 	.col-sm-6 .form-group {
 margin-bottom: 5px;
 		margin-top: 5px;
 display: flex;
-flex-direction: row;
+flex-direction: column;
 justify-content: space-between;
 }
 
@@ -828,8 +827,7 @@ appearance: none;
 padding-block: 0;
 border-radius: 3px;
 background: #F0F0F0;
-box-shadow: 1px 1px 1px #cacaca,
--1px -1px 1px #ffffff!important;
+
 line-height: 1.2;
 }
 .awesomplete>input
@@ -838,8 +836,7 @@ line-height: 1.2;
 background-color: var(--bg-color)!important;
 	border-radius: 2px;
 background: #F0F0F0;
-box-shadow: inset 1px 1px 1px #cacaca,
-inset -1px -1px 1px #f0f0f0;
+
 }	
 
 .rt-r-bottom-0 {
@@ -1618,16 +1615,26 @@ background-color: var(--bg-color);
 color: var(--text-color);
 }
 .form-control {
-border:none!important;
-border-radius: 1px;
+border: 1px solid var(--gray-500) !important;
+border-radius: 1px !important;
 }
+.frappe-control[data-fieldtype=Phone] .selected-phone img {
+height: 25px !important;
+width: 25px !important;
+}
+.frappe-control[data-fieldtype=Phone] .selected-phone {
+	top: calc(50% + -1px) !important;
+}
+
 .form-control {
-  box-shadow: rgb(202, 202, 202) 1px 1px 1px inset, rgb(240, 240, 240) -1px -1px 1px inset;
+  
 background-color: var(--bg-color)!important;
 }
 .like-disabled-input {
 
-border-radius: 1px;
+border: 1px solid rgba(153, 153, 153, 0.39) !important;
+border-radius: 1px !important;
+	background-color: var(--subtle-fg);
 
 }
 
