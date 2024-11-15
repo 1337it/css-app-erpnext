@@ -143,6 +143,7 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
                 """select
                         tabItem.name as name, tabItem.description as description,
 			COALESCE(round(ip.custom_block_price, 2), '0.00') AS block_price,
+   			tabItem.idx AS idx,
 			COALESCE(round(ip.price_list_rate, 2), '0.00') AS retail_price,
    COALESCE(round(ip.custom_wholesale_price, 2), '0.00') AS wholesale_price,
    (SELECT COALESCE(round(sum(`tabStock Ledger Entry`.actual_qty), 0), '0')
@@ -158,9 +159,11 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
                         and tabItem.has_variants=0
 			and tabItem.name LIKE %(txt)s or tabItem.description LIKE %(txt)s
             		group by tabItem.name
-	      order by idx desc
+	      		order by idx desc
+
 	      UNION ALL SELECT concat(`tabItem Alternative`.alternative_item_code, ' (SUB)') AS name,
        (select itm.description from tabItem as itm where itm.name = `tabItem Alternative`.alternative_item_code) AS description,
+       `tabItem Alternative`.idx AS idx,
        COALESCE(round(ip.custom_block_price, 0), '0') AS block_price,
        COALESCE(round(ip.price_list_rate, 0), '0') AS retail_price,
        COALESCE(round(ip.custom_wholesale_price, 0), '0') AS wholesale_price,
