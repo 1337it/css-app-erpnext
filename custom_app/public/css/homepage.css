@@ -198,7 +198,10 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
-
+.form-control:focus
+	{
+		border: 2px solid rgba(0, 0, 0, 0.76) !important;
+	}
 	.form-section .section-body {
 width: 100%;
 margin: 20px;
@@ -213,8 +216,6 @@ overflow: visible;
 bottom: 0;
 margin-top: 20px;
 background-color: white;
-border: 1px solid rgba(128, 128, 128, 0.19);
-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px, rgba(0, 0, 0, 0.06) 0px 1px 1px 0px
 }
 		[data-page-route="Sales Order"] [data-fieldname="section_break_31"] [data-fieldname^="custom"].col-sm-2 {
 flex: 0 0 20% !important;
@@ -224,8 +225,6 @@ overflow: visible;
 bottom: 0;
 margin-top: 20px;
 background-color: white;
-border: 1px solid rgba(128, 128, 128, 0.19);
-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px, rgba(0, 0, 0, 0.06) 0px 1px 1px 0px
 }
 
 	[data-page-route="Purchase Invoice"] [data-fieldname="section_break_32"] [data-fieldname^="custom"].col-sm-2 {
@@ -236,8 +235,6 @@ overflow: visible;
 bottom: 0;
 margin-top: 20px;
 background-color: white;
-border: 1px solid rgba(128, 128, 128, 0.19);
-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px, rgba(0, 0, 0, 0.06) 0px 1px 1px 0px
 }
 	[data-fieldname="column_totals"] {
 flex: 0 0 100%;
@@ -815,10 +812,11 @@ height: 16px;
 [data-page-route^='List/'] .form-control {
 
 background-color: var(--bg-color)!important;
-	border-radius: 2px;
+border-radius: 2px;
 background: #F0F0F0;
-box-shadow: inset 1px 1px 1px #cacaca,
-inset -1px -1px 1px #f0f0f0;
+/* box-shadow: inset 1px 1px 1px #cacaca,
+inset -1px -1px 1px #f0f0f0; */
+border-bottom: 2px solid rgba(0, 0, 0, 0.12) !important;
 }
 select.form-control {
 -webkit-appearance: none;
