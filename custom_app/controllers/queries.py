@@ -140,26 +140,7 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
 	conditions = []
 
 	return frappe.db.sql(
-                """select
-                        tabItem.name as name, tabItem.description as description,
-			COALESCE(round(ip.custom_block_price, 2), '0.00') AS block_price,
-   			tabItem.idx AS idx,
-			COALESCE(round(ip.price_list_rate, 2), '0.00') AS retail_price,
-   COALESCE(round(ip.custom_wholesale_price, 2), '0.00') AS wholesale_price,
-   (SELECT COALESCE(round(sum(`tabStock Ledger Entry`.actual_qty), 0), '0')
-          FROM `tabStock Ledger Entry` AS `tabStock Ledger Entry`
-         WHERE `tabStock Ledger Entry`.item_code = `tabItem`.item_code) AS available_qty,
-   COALESCE(round(`tabBin`.actual_qty, 0), '0') AS instore_qty,
-   1 as row
-			from tabItem
-   LEFT OUTER JOIN `tabItem Price` AS ip ON tabItem.name = ip.item_code and ip.price_list = 'Standard Selling'
-   LEFT OUTER JOIN `tabBin` ON (tabItem.name = `tabBin`.item_code {fcond})
-                where tabItem.docstatus < 2
-                        and tabItem.disabled=0
-                        and tabItem.has_variants=0
-			and tabItem.name LIKE %(txt)s or tabItem.description LIKE %(txt)s
-            		group by tabItem.name
-	      UNION ALL SELECT concat(`tabItem Alternative`.alternative_item_code, ' (SUB)') AS name,
+                """SELECT concat(`tabItem Alternative`.alternative_item_code, ' (SUB)') AS name,
        (select itm.description from tabItem as itm where itm.name = `tabItem Alternative`.alternative_item_code) AS description,
        `tabItem Alternative`.idx AS idx,
        COALESCE(round(ip.custom_block_price, 0), '0') AS block_price,
@@ -179,7 +160,26 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
     ON (`tabItem Alternative`.alternative_item_code = `tabBin`.item_code {fcond})
  WHERE `tabItem Alternative`.item_code like %(txt)s
  GROUP BY `tabItem Alternative`.alternative_item_code
- ORDER BY tabItem.idx DESC, `tabItem Alternative`.idx DESC
+ UNION ALL select
+                        tabItem.name as name, tabItem.description as description,
+			COALESCE(round(ip.custom_block_price, 2), '0.00') AS block_price,
+   			tabItem.idx AS idx,
+			COALESCE(round(ip.price_list_rate, 2), '0.00') AS retail_price,
+   COALESCE(round(ip.custom_wholesale_price, 2), '0.00') AS wholesale_price,
+   (SELECT COALESCE(round(sum(`tabStock Ledger Entry`.actual_qty), 0), '0')
+          FROM `tabStock Ledger Entry` AS `tabStock Ledger Entry`
+         WHERE `tabStock Ledger Entry`.item_code = `tabItem`.item_code) AS available_qty,
+   COALESCE(round(`tabBin`.actual_qty, 0), '0') AS instore_qty,
+   1 as row
+			from tabItem
+   LEFT OUTER JOIN `tabItem Price` AS ip ON tabItem.name = ip.item_code and ip.price_list = 'Standard Selling'
+   LEFT OUTER JOIN `tabBin` ON (tabItem.name = `tabBin`.item_code {fcond})
+                where tabItem.docstatus < 2
+                        and tabItem.disabled=0
+                        and tabItem.has_variants=0
+			and tabItem.name LIKE %(txt)s or tabItem.description LIKE %(txt)s
+            		group by tabItem.name 
+ ORDER BY idx DESC
 		limit %(start)s, %(page_len)s """.format(
 			fcond=get_filters_cond('Bin', filters, []),
 		),
