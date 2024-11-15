@@ -160,7 +160,6 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
 			and tabItem.name LIKE %(txt)s or tabItem.description LIKE %(txt)s
             		group by tabItem.name
 	      		ORDER BY `tabItem`.idx DESC
-
 	      UNION ALL SELECT concat(`tabItem Alternative`.alternative_item_code, ' (SUB)') AS name,
        (select itm.description from tabItem as itm where itm.name = `tabItem Alternative`.alternative_item_code) AS description,
        `tabItem Alternative`.idx AS idx,
