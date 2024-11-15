@@ -179,7 +179,7 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
     ON (`tabItem Alternative`.alternative_item_code = `tabBin`.item_code {fcond})
  WHERE `tabItem Alternative`.item_code like %(txt)s
  GROUP BY `tabItem Alternative`.alternative_item_code
- ORDER BY idx DESC
+ ORDER BY tabItem.idx DESC, `tabItem Alternative`.idx DESC
 		limit %(start)s, %(page_len)s """.format(
 			fcond=get_filters_cond('Bin', filters, []),
 		),
