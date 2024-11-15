@@ -159,7 +159,7 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
                         and tabItem.has_variants=0
 			and tabItem.name LIKE %(txt)s or tabItem.description LIKE %(txt)s
             		group by tabItem.name
-	      		order by idx desc
+	      		ORDER BY `tabItem`.idx DESC
 
 	      UNION ALL SELECT concat(`tabItem Alternative`.alternative_item_code, ' (SUB)') AS name,
        (select itm.description from tabItem as itm where itm.name = `tabItem Alternative`.alternative_item_code) AS description,
@@ -181,7 +181,7 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
     ON (`tabItem Alternative`.alternative_item_code = `tabBin`.item_code {fcond})
  WHERE `tabItem Alternative`.item_code like %(txt)s
  GROUP BY `tabItem Alternative`.alternative_item_code
- order by idx desc
+ ORDER BY `tabItem Alternative`.idx DESC
 		limit %(start)s, %(page_len)s """.format(
 			fcond=get_filters_cond('Bin', filters, []),
 		),
