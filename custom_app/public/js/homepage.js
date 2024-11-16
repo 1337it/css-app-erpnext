@@ -1344,7 +1344,7 @@ document.querySelector('[data-page-route^="'+frappe.get_route()[1]+'"] .page-hea
 frappe.ui.form.on(doctype, "refresh", function(frm) {
 	var formlinks = document.querySelector('[data-page-route="'+doctype+'"] .form-links') !== null;
 			if(formlinks){
-  $('[data-page-route="'+doctype+'"] .col-lg-2.layout-side-section').append($('[data-page-route="'+doctype+'"] .form-links')[0].clone());
+  $('[data-page-route="'+doctype+'"] .col-lg-2.layout-side-section').append($('[data-page-route="'+doctype+'"] .form-links').clone()[0]);
 			}
 	var path = '[href="'+window.location.pathname+'"].ellipsis';
 $(".list-row-container").removeClass("selecteditem");
