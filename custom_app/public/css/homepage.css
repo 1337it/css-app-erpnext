@@ -198,6 +198,18 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+	.document-link:has(> .document-link-badge .count.hidden) {
+display: none !important;
+
+}
+	.form-links .form-link-title {
+
+display: none;
+}
+	.col-md-4:has(> .document-link .document-link-badge .count) {
+display: block;
+max-width: 100%;
+}
 .form-control:focus
 	{
 		border: 2px solid rgba(0, 0, 0, 0.76) !important;
