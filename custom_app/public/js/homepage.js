@@ -1309,8 +1309,13 @@ document.querySelector("#body").appendChild(formclose);
 	
 		
 		frappe.ui.form.on(doctype, "onload", function(frm) {
-		
 
+
+			var formlinks = document.querySelector('[data-page-route="'+doctype+'"] .form-links') !== null;
+			if(formlinks){
+  $('[data-page-route="'+doctype+'"] .col-lg-2.layout-side-section').append($('.form-links')[0]);
+			}
+ 
 var selectionlist = document.querySelector('[data-page-route^="List/'+doctype+'"]') !== null;
 if(selectionlist){
 
