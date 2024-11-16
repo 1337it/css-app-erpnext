@@ -202,6 +202,7 @@ background: 0!important;
 
 width: 80%;
 text-align: left;
+		padding: 2px 8px;
 }
 	.form-links .document-link .document-link-badge .count, .form-links .document-link .report-link-badge .count {
 font-size: 14px!important;
@@ -214,10 +215,7 @@ margin-right: 10px!important;
 margin-left: -33px!important;
 filter: invert()!important;
 }
-	.document-link:has(> .document-link-badge .count.hidden) {
-display: none !important;
-
-}
+	
 	.form-links .form-link-title {
 
 display: none;
@@ -225,6 +223,7 @@ display: none;
 	.col-md-4:has(> .document-link .document-link-badge .count) {
 display: block;
 max-width: 100%;
+		flex: 0 0 100%;
 }
 .form-control:focus
 	{
