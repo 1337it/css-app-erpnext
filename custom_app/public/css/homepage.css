@@ -198,6 +198,22 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+	.form-links .document-link .document-link-badge, .form-links .document-link .report-link-badge {
+
+width: 80%;
+text-align: left;
+}
+	.form-links .document-link .document-link-badge .count, .form-links .document-link .report-link-badge .count {
+font-size: 14px!important;
+font-weight: var(--weight-regular);
+background-color: #ffffff!important;
+border-radius: 10px!important;
+color: #000000!important;
+padding: 0 6px!important;
+margin-right: 10px!important;
+margin-left: -33px!important;
+filter: invert()!important;
+}
 	.document-link:has(> .document-link-badge .count.hidden) {
 display: none !important;
 
