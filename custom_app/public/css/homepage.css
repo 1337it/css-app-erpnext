@@ -1,7 +1,14 @@
 [data-route*="/new"] .editable-form .page-wrapper .layout-side-section
 {display:none!important;
 }
-
+.form-links .document-link:has(> .btn.hidden) {
+display: none;
+--scrollbar-thumb-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
+.form-links .document-link:has(> .open-notification.hidden) {
+display: none;
+--scrollbar-thumb-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
 
 @keyframes pulse-red {
 	0% {
