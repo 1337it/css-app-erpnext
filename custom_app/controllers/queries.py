@@ -142,16 +142,16 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
 	return frappe.db.sql(
                 """SELECT concat(`tabItem Alternative`.alternative_item_code, ' (SUB)') AS name,
        (select itm.description from tabItem as itm where itm.name = `tabItem Alternative`.alternative_item_code) AS description,
-       `tabItem Alternative`.idx AS idx,
-       COALESCE(round(ip.custom_block_price, 0), '0') AS block_price,
-       COALESCE(round(ip.price_list_rate, 0), '0') AS retail_price,
-       COALESCE(round(ip.custom_wholesale_price, 0), '0') AS wholesale_price,
+       COALESCE(round(`tabBin`.actual_qty, 0), '0') AS instore_qty,
        (
         SELECT COALESCE(round(sum(`tabStock Ledger Entry`.actual_qty), 0), '0')
           FROM `tabStock Ledger Entry` AS `tabStock Ledger Entry`
          WHERE `tabStock Ledger Entry`.item_code = `tabItem Alternative`.item_code
        ) AS available_qty,
-       COALESCE(round(`tabBin`.actual_qty, 0), '0') AS instore_qty,
+       COALESCE(round(ip.price_list_rate, 0), '0') AS retail_price,
+       COALESCE(round(ip.custom_wholesale_price, 0), '0') AS wholesale_price,
+       COALESCE(round(ip.custom_block_price, 0), '0') AS block_price,
+       `tabItem Alternative`.idx AS idx,
        2 as row
   FROM `tabItem Alternative`
   LEFT OUTER JOIN `tabItem Price` AS ip
@@ -162,14 +162,14 @@ def item_query(doctype, txt, searchfield, start, page_len, filters, as_dict=Fals
  GROUP BY `tabItem Alternative`.alternative_item_code
  UNION ALL select
                         tabItem.name as name, tabItem.description as description,
-			COALESCE(round(ip.custom_block_price, 2), '0.00') AS block_price,
-   			tabItem.idx AS idx,
-			COALESCE(round(ip.price_list_rate, 2), '0.00') AS retail_price,
-   COALESCE(round(ip.custom_wholesale_price, 2), '0.00') AS wholesale_price,
-   (SELECT COALESCE(round(sum(`tabStock Ledger Entry`.actual_qty), 0), '0')
+			COALESCE(round(`tabBin`.actual_qty, 0), '0') AS instore_qty,
+			   (SELECT COALESCE(round(sum(`tabStock Ledger Entry`.actual_qty), 0), '0')
           FROM `tabStock Ledger Entry` AS `tabStock Ledger Entry`
          WHERE `tabStock Ledger Entry`.item_code = `tabItem`.item_code) AS available_qty,
-   COALESCE(round(`tabBin`.actual_qty, 0), '0') AS instore_qty,
+			COALESCE(round(ip.price_list_rate, 2), '0.00') AS retail_price,
+   COALESCE(round(ip.custom_wholesale_price, 2), '0.00') AS wholesale_price,
+   COALESCE(round(ip.custom_block_price, 2), '0.00') AS block_price,
+   			tabItem.idx AS idx,
    1 as row
 			from tabItem
    LEFT OUTER JOIN `tabItem Price` AS ip ON tabItem.name = ip.item_code and ip.price_list = 'Standard Selling'
