@@ -1,3 +1,8 @@
+[data-route*="/new"] .editable-form .page-wrapper .layout-side-section
+{display:none!important;
+}
+
+
 @keyframes pulse-red {
 	0% {
 		    transform: scale(0.95);
