@@ -1343,6 +1343,8 @@ document.querySelector('[data-page-route^="'+frappe.get_route()[1]+'"] .page-hea
 
 frappe.ui.form.on(doctype, "refresh", function(frm) {
 
+	if(doctype == 'Sales Order' || doctype == 'Sales Invoice' || doctype == 'Delivery Note' || doctype == 'Purchase Order' || doctype == 'Purchase Invoice' || doctype == 'Pick List') {
+
 var itemslist = cur_frm.fields_dict.items.grid.grid_pagination.page_length !== null;
 	if(itemslist)
 	{
@@ -1350,7 +1352,7 @@ var itemslist = cur_frm.fields_dict.items.grid.grid_pagination.page_length !== n
 		cur_frm.refresh_fields('items')
 		
 	}
-
+	}
 
 
 	
