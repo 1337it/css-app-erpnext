@@ -1342,6 +1342,18 @@ document.querySelector('[data-page-route^="'+frappe.get_route()[1]+'"] .page-hea
 
 
 frappe.ui.form.on(doctype, "refresh", function(frm) {
+
+var itemslist = cur_frm.fields_dict.items.grid.grid_pagination.page_length !== null;
+	if(itemslist)
+	{
+		cur_frm.fields_dict.items.grid.grid_pagination.page_length = 1000;
+		cur_frm.refresh_fields('items')
+		
+	}
+
+
+
+	
 	var formlinks = document.querySelector('[data-page-route="'+doctype+'"] .form-links') !== null;
 			if(formlinks){
 				const linkparent = $('[data-page-route="'+doctype+'"] .form-links').parent()[0];
