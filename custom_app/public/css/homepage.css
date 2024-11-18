@@ -210,6 +210,12 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+	.link-select-row:has(> .col-xs-2 [data-value]:focus) {
+padding: var(--padding-sm);
+border-bottom: 1px solid var(--border-color);
+filter: invert();
+}
+
 	.form-links .document-link .document-link-badge, .form-links .document-link .report-link-badge {
 
 width: 80%;
