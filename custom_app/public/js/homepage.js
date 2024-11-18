@@ -1344,7 +1344,7 @@ document.querySelector('[data-page-route^="'+frappe.get_route()[1]+'"] .page-hea
 frappe.ui.form.on(doctype, "refresh", function(frm) {
 	var formlinks = document.querySelector('[data-page-route="'+doctype+'"] .form-links') !== null;
 			if(formlinks){
-				const linkparent = $('[data-page-route="Sales Invoice"] .form-links').parent()[0];
+				const linkparent = $('[data-page-route="'+doctype+'"] .form-links').parent()[0];
   $('[data-page-route="'+doctype+'"] .col-lg-2.layout-side-section').append($('[data-page-route="'+doctype+'"] .form-links')[0]);
 			
 				linkparent.append($('[data-page-route="'+doctype+'"] .col-lg-2.layout-side-section .form-links').clone()[0]);
