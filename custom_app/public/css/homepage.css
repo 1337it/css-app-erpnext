@@ -210,6 +210,12 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+[data-fieldname="item_code"] [role="listbox"]
+	{
+width: 50vw !important;
+margin: 0;
+padding: 0;
+}
 	
 [data-route*="/new-"] .editable-form.page-container {
 width: 97vw !important;
