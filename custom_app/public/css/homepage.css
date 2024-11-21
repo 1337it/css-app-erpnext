@@ -210,6 +210,14 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+
+[data-fieldname="item_code"] [role="listbox"] {
+width: 50vw !important;
+margin: 0;
+padding: 0;
+box-shadow: 0 0 5000px black;
+}
+	
 [data-fieldname="item_code"] [role="listbox"]
 	{
 width: 50vw !important;
