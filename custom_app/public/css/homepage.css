@@ -210,6 +210,12 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+	
+[data-route*="/new-"] .editable-form.page-container {
+width: 97vw !important;
+}
+
+	
 	.link-select-row:has(> .col-xs-2 [data-value]:focus) {
 padding: var(--padding-sm);
 border-bottom: 1px solid var(--border-color);
