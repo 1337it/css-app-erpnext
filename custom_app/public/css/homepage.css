@@ -699,7 +699,7 @@ display:none!important;
     display: block !important;
 }
 .awesomplete>[role=listbox]:has(> #tablehead1){
-	filter:brightness(5);
+	filter:none;
 }
 .awesomplete>[role=listbox]{
 	filter:brightness(5);
