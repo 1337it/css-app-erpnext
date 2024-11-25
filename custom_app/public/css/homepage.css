@@ -701,7 +701,7 @@ display:none!important;
 .awesomplete>[role=listbox]:has(> #tablehead1){
 	filter:none;
 }
-.awesomplete>[role=listbox]{
+[data-fieldname="item_code"] .awesomplete>[role=listbox]{
 	filter:brightness(5);
 }
 	.navbar .awesomplete>[role=listbox] {
