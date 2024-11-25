@@ -224,6 +224,7 @@ width: 50vw !important;
 margin: 0;
 padding: 0;
 }
+
 	
 [data-route*="/new-"] .editable-form.page-container {
 width: 97vw !important;
@@ -697,7 +698,12 @@ display:none!important;
     scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
     display: block !important;
 }
-
+.awesomplete>[role=listbox]:has(> #tablehead1){
+	filter:brightness(5);
+}
+.awesomplete>[role=listbox]{
+	filter:brightness(5);
+}
 	.navbar .awesomplete>[role=listbox] {
     position: absolute;
     width: 100%;
