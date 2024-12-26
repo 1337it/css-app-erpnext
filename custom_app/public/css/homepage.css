@@ -2760,9 +2760,18 @@ z-index: 5;
 border-bottom: 0.5px solid #949494;
 }
 
-
-    [data-route^="Form/"] [data-page-route^="List/"] .page-form .standard-filter-section {
+[data-route^="Form/"] [data-page-route^="List/"] .page-form .standard-filter-section .form-group {
 display: none;
+}
+ [data-route^="Form/"] [data-page-route^="List/"] .page-form .standard-filter-section [data-fieldname="name"] {
+padding-right: 0 var(--padding-lg);
+position: fixed;
+top: 125px;
+left: 6%;
+z-index: 9999;
+visibility: visible;
+display: block !important;
+	 width:16%;
 }
    [data-route^="Form/"] [data-page-route^="List/"] .page-form .filter-section {
 padding-right: 0 var(--padding-lg);
