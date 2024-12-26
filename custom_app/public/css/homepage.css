@@ -826,10 +826,6 @@ text-align: center;
 {
 	background:rgba(151, 222, 212, 0.74)!important;
 }
-	.list-row-container:focus {
-		background-color: var(--gray-350);
-		border-left: 3px solid #ed152b;
-	}
 
 [custom_block_name="greetings"] .custom-block-widget-box {
 box-shadow: none!important;
