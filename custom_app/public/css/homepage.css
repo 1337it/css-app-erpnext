@@ -2771,13 +2771,13 @@ left: 6%;
 z-index: 9999;
 visibility: visible;
 display: block !important;
-	 width:16%;
+	 width:10%;
 }
    [data-route^="Form/"] [data-page-route^="List/"] .page-form .filter-section {
 padding-right: 0 var(--padding-lg);
 position: fixed;
-top: 120px;
-left: 12%;
+top: 119px;
+left: 15%;
 z-index: 9999;
 visibility: visible;
 }
