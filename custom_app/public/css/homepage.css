@@ -2769,6 +2769,13 @@ visibility: visible;
 display: block !important;
 	 width:10%;
 }
+
+[data-route^="Form/"] [data-page-route^="List/"] .ellipsis[title^="Description"] span {
+position: absolute;
+left: 47px;
+margin-bottom: 10px;
+font-size: 12px !importan;
+}
    [data-route^="Form/"] [data-page-route^="List/"] .page-form .filter-section {
 padding-right: 0 var(--padding-lg);
 position: fixed;
