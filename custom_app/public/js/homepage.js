@@ -1356,13 +1356,7 @@ var itemslist = cur_frm.fields_dict.items.grid.grid_pagination.page_length !== n
 
 
 	
-	var formlinks = document.querySelector('[data-page-route="'+doctype+'"] .form-links') !== null;
-			if(formlinks){
-				const linkparent = $('[data-page-route="'+doctype+'"] .form-links').parent()[0];
-  $('[data-page-route="'+doctype+'"] .col-lg-2.layout-side-section').append($('[data-page-route="'+doctype+'"] .form-links')[0]);
-			
-				linkparent.append($('[data-page-route="'+doctype+'"] .col-lg-2.layout-side-section .form-links').clone()[0]);
-			}
+	
 	var path = '[href="'+window.location.pathname+'"].ellipsis';
 $(".list-row-container").removeClass("selecteditem");
 		$(path).parent().parent().parent().parent().parent().addClass('selecteditem');
