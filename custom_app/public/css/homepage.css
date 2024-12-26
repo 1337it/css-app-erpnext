@@ -2759,7 +2759,7 @@ border-bottom: 0.5px solid #949494;
  [data-page-route^="List/"] .page-form .standard-filter-section .form-group {
 display: none;
 }
-  [data-page-route^="List/"] .page-form .standard-filter-section [data-fieldname="name"] {
+ [data-route^="Form/"] [data-page-route^="List/"] .page-form .standard-filter-section [data-fieldname="name"] {
 padding-right: 0 var(--padding-lg);
 position: fixed;
 top: 125px;
@@ -2773,13 +2773,13 @@ display: block !important;
 {
 display: block;
 }
- [data-page-route^="List/"] .ellipsis[title^="Description"] span {
+[data-route^="Form/"] [data-page-route^="List/"] .ellipsis[title^="Description"] span {
 position: absolute;
 left: 47px;
 margin-bottom: 10px;
 font-size: 12px !importan;
 }
-    [data-page-route^="List/"] .page-form .filter-section {
+    [data-route^="Form/"] [data-page-route^="List/"] .page-form .filter-section {
 padding-right: 0 var(--padding-lg);
 position: fixed;
 top: 119px;
@@ -2787,7 +2787,7 @@ left: 15%;
 z-index: 9999;
 visibility: visible;
 }
-     [data-page-route^="List/"] .filter-section .sort-selector {
+    [data-route^="Form/"] [data-page-route^="List/"] .filter-section .sort-selector {
 display: none;
 }
     
