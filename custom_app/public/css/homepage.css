@@ -824,8 +824,7 @@ text-align: center;
 
 .selecteditem
 {
-	background: var(--btn-default-hover-bg)!important;
-        border-left: 3px solid #ed152b;
+	background:rgba(151, 222, 212, 0.74)!important;
 }
 	.list-row-container:focus {
 		background-color: var(--gray-350);
