@@ -210,7 +210,22 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+.fullscreenmodal [data-page-route^="List/"] .page-wrapper .layout-side-section {
+height: 100%;
+background-color: white;
+}
+	
+.fullscreenmodal .page-wrapper .layout-main {
 
+background-color: white;
+}
+	
+.fullscreenmodal [data-page-route^="List/"] .page-wrapper .layout-main-section-wrapper {
+margin-left: 0;
+padding-top: 45px;
+margin-right: 0;
+height: 100%;
+}
 [data-fieldname="item_code"] [role="listbox"] {
 width: 50vw !important;
 margin: 0;
