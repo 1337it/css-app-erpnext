@@ -230,7 +230,7 @@ text-decoration: blink;
 display: none !important;
 }
 	
-	.fullscreenmodal .main-section header {
+	.fullscreenmodal .main-section .sticky-top header {
 display: none;
 }
 	.fullscreenmodal[data-route^='Form'] .editable-form.page-container {
