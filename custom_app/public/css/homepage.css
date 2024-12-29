@@ -210,6 +210,15 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+.fullscreenmodal .result header.level.list-row-head {
+left: 0;
+top: 0;
+}
+	.fullscreenmodal .frappe-card .list-paging-area, .frappe-card .footnote-area {
+left: 0;
+right: calc(16.66667% + 10px);
+}
+	
 .fullscreenmodal [data-page-route^="List/"] .page-wrapper .layout-side-section {
 height: 100%;
 background-color: white;
