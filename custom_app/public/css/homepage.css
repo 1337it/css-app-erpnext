@@ -210,6 +210,16 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+.fullscreenmodal .page-wrapper .layout-main-section-wrapper {
+height: 100% !important;
+	
+}
+	.fullscreenmodal .form-control {
+border-width: 1px solid rgba(153, 153, 153, 0) !important;
+border-radius: 1px !important;
+font-weight: 700 !important;
+text-decoration: blink;
+}
 
 .fullscreenmodal #page-Workspaces {
 display: none !important;
