@@ -211,6 +211,16 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
+	[data-route^="Form/"] [data-page-route^="List/"] .frappe-list .ellipsis [data-name][href] {
+margin-bottom: 10px;
+}
+
+	[data-route^="Form/"] [data-page-route^="List/"] .list-row-col:has(> [title^="Description"]) {
+display: block;
+font-size: 10px !important;
+margin-top: 8px;
+}
+
 .fullscreenmodal .form-tabs-list {
 display: none !important;
 }
