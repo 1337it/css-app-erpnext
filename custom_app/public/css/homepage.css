@@ -215,7 +215,7 @@ display: block;
 /* width: 77vw; */
 position: fixed;
 /* background-color: var(--bg-color); */
-height: 100%;
+height: 100% !important;
 animation-name: css-0, css-8;
 animation-fill-mode: both;
 right: 0!important;
@@ -289,12 +289,12 @@ right: calc(16.66667% + 10px);
 }
 	
 .fullscreenmodal [data-page-route^="List/"] .page-wrapper .layout-side-section {
-height: 100%;
+height: 100% !important;
 background-color: white;
 }
 	
 .fullscreenmodal .page-wrapper .layout-main {
-
+height:100% !important;
 background-color: white;
 }
 	
@@ -302,7 +302,7 @@ background-color: white;
 margin-left: 0;
 padding-top: 45px;
 margin-right: 0;
-height: 100%;
+height: 100% !important;
 }
 [data-fieldname="item_code"] [role="listbox"] {
 width: 50vw !important;
