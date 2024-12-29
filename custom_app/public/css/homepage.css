@@ -211,9 +211,8 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
-	.fullscreenmodal .form-tabs-list {
-display: none;
-
+.fullscreenmodal .form-tabs-list {
+display: none !important;
 }
 .fullscreenmodal .page-wrapper .layout-main-section-wrapper {
 height: 100% !important;
