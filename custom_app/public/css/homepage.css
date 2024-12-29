@@ -210,6 +210,11 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+
+	.fullscreenmodal .form-tabs-list {
+display: none;
+
+}
 .fullscreenmodal .page-wrapper .layout-main-section-wrapper {
 height: 100% !important;
 	
@@ -274,6 +279,7 @@ height: calc(2px + var(--checkbox-size))!important;
 left: 0;
 /* right: calc(16.66667% + 10px); */
 padding-bottom: 0;
+		margin-bottom: 0 !important;
 width: 20%;
 }
 .fullscreenmodal .frappe-card .list-paging-area, .frappe-card .footnote-area {
