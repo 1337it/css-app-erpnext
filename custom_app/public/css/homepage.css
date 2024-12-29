@@ -942,9 +942,14 @@ text-align: center;
 	    opacity:0.8;
 }
 
-.selecteditem {
+.list-row-container:focus {
 background-color: rgba(151, 222, 212, 0.74) !important;
 transition: 0.5s background-color ease;
+}
+
+
+.selecteditem {
+background-color: rgba(151, 222, 212, 0.74) !important;
 }
 
 
