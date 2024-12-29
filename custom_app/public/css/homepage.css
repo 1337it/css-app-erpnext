@@ -210,6 +210,14 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+
+.fullscreenmodal #page-Workspaces {
+display: none !important;
+}
+	
+	.fullscreenmodal .main-section header {
+display: none;
+}
 	.fullscreenmodal[data-route^='Form'] .editable-form.page-container {
 display: block;
 /* width: 77vw; */
@@ -258,7 +266,11 @@ left: 0;
 padding-bottom: 0;
 width: 20%;
 }
-
+.fullscreenmodal .frappe-card .list-paging-area, .frappe-card .footnote-area {
+left: 0;
+right: calc(16.66667% + 10px);
+padding-bottom: 0;
+}
 .fullscreenmodal[data-route^="Form/"] [data-page-route^="List"] .frappe-list .result header.text-muted {
 left: 0 !important;
 top: 0;
