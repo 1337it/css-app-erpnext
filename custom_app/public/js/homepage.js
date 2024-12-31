@@ -289,7 +289,7 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
                             <table class="table table-bordered">
                           
                             </table>
-                        </div>`).appendTo(d);
+                        </div>`).prependTo(d);
                         r.message.forEach(element => {
                             const thead = $(d).find('table');
                             const th = $(`
