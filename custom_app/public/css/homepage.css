@@ -211,6 +211,12 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
+	.fullscreenmodal[data-route^="Form/"] [data-page-route^="List/"] .ellipsis[title^="Description"] span {
+
+left: 16px;
+
+}
+
 	[data-route^="Form/"] [data-page-route^="List/"] .frappe-list .ellipsis [data-name][href] {
 margin-bottom: 10px;
 }
