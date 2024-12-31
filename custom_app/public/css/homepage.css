@@ -211,6 +211,11 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
+	.fullscreenmodal .form-control {
+border: 0px solid var(--gray-500) !important;
+border-radius: 1px !important;
+}
+
 .fullscreenmodal .table th {
 display: table-cell;
 }
