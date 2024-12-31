@@ -211,6 +211,12 @@ background: 0!important;
 
 @media (min-width: 1200px) {
 
+	[data-route^="Form/Item"] .form-sidebar .sidebar-image-section
+{
+display:none!important;
+}
+
+
 	.fullscreenmodal[data-route^="Form/"] [data-page-route^="List/"] .ellipsis[title^="Description"] span {
 
 left: 16px;
