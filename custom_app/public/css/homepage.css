@@ -210,7 +210,11 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+[data-route^='Form/Customize'] .page-head {
 
+left: 48px !important;
+
+}
 	[data-route^="Form/Item"] .form-sidebar .sidebar-image-section
 {
 display:none!important;
