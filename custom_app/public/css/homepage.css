@@ -210,6 +210,15 @@ background: 0!important;
 
 
 @media (min-width: 1200px) {
+
+.fullscreenmodal .table th {
+display: table-cell;
+}
+	.fullscreenmodal .page-wrapper .layout-side-section
+	{
+		height:100%;
+	}
+
 [data-route^='Form/Customize'] .page-head {
 
 left: 48px !important;
