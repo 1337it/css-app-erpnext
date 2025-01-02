@@ -3193,6 +3193,9 @@ box-shadow: 0 0 1px rgba(0, 0, 0, 0), 0 2px 4px rgba(0, 0, 0, 0.09);
    [data-route^="List/"] .page-wrapper .frappe-card .page-form{
 padding-left: 0px!important;
 padding-right: 0vw!important;
+position: fixed;
+width: calc(100% - 16.667% - 80px);
+background-color: var(--avatar-frame-bg);
 }
 
 
@@ -3594,7 +3597,7 @@ background-color: rgba(244, 244, 244, 0.12);
     [data-page-route^="List/"] .page-wrapper .layout-main-section-wrapper {
     color: rgb(51, 60, 68);
     padding-right: 0px;
-    padding-top: 45px;
+    padding-top: 44px;
     padding-left: 0px !important;
         margin-left:58px;
 	            margin-right:10px;
