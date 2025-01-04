@@ -2973,7 +2973,7 @@ display: none;
 
  [data-route^="Form/"] [data-page-route^="List/"] .page-wrapper .frappe-card .page-form
 {
-	position: fixed;
+
 visibility: hidden;
 }
 
