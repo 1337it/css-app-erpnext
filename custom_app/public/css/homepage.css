@@ -3202,6 +3202,7 @@ width: calc(100% - 16.667% - 80px);
 background-color: var(--avatar-frame-bg);
 	   padding: 0;
 height: 40px;
+	   top:161px;
 	   z-index:9;
 }
 
