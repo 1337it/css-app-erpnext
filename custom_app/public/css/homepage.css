@@ -385,7 +385,6 @@ height: 100% !important;
 width: 50vw !important;
 margin: 0;
 padding: 0;
-box-shadow: 0 0 5000px black;
 }
 	
 [data-fieldname="item_code"] [role="listbox"]
@@ -435,10 +434,9 @@ display: block;
 max-width: 100%;
 		flex: 0 0 100%;
 }
-.form-control:focus
-	{
-		border: 2px solid rgba(0, 0, 0, 0.76) !important;
-	}
+.form-control:focus {
+border-bottom: 1px solid rgba(0, 255, 219, 1) !important;
+}
 	.form-section .section-body {
 width: 100%;
 margin: 20px;
@@ -866,7 +864,7 @@ display:none!important;
 .awesomplete>[role=listbox]:has(> #tablehead1){
 	filter:none;
 }
-[data-fieldname="item_code"] .awesomplete>[role=listbox]{
+[data-route^="Form/"] [data-fieldname="item_code"] .awesomplete>[role=listbox]{
 	filter:brightness(5);
 }
 	.navbar .awesomplete>[role=listbox] {
