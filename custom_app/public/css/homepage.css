@@ -3169,7 +3169,7 @@ transition: width 0.2s ease-in-out;
 }
    [data-theme-mode="light"] .page-wrapper .layout-side-section {
     background-size: cover;
-    padding-top: 30px;
+    padding-top: 10px;
     top: 0;
     display: block;
     order: 2;
