@@ -305,6 +305,56 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
                 }
             });   
 
+frappe.ui.form.on('Item', "refresh", function(frm) {	
+	if (!frm.doc.name) {
+            return;
+        }
+
+        // Fetch item alternatives and display them in the "itemalternatives" field
+        frappe.call({
+            method: 'frappe.client.get_list',
+            args: {
+                doctype: 'Item Alternative',
+                fields: ['alternative_item_code'],
+                filters: {
+                    item_code: frm.doc.name
+                }
+            },
+            callback: function(response) {
+                if (response.message && response.message.length > 0) {
+                    const alternatives = response.message;
+
+                    // Construct HTML for the alternatives table
+                    let html = '<table class="table table-bordered">';
+                    html += '<thead><tr><th>Alternative Item</th><th>Available Quantity</th></tr></thead><tbody>';
+
+                    const promises = alternatives.map(alt => {
+                        return frappe.call({
+                            method: 'frappe.client.get_value',
+                            args: {
+                                doctype: 'Bin',
+                                filters: { item_code: alt.alternative_item_code },
+                                fieldname: 'actual_qty'
+                            }
+                        }).then(qty_response => {
+                            const quantity = qty_response.message ? qty_response.message.actual_qty : 0;
+                            const item_link = `<a href="/app/item/${alt.alternative_item_code}" style="color:blue" target="_blank">${alt.alternative_item_code}</a>`;
+                            return `<tr><td>${item_link}</td><td>${quantity}</td></tr>`;
+                        });
+                    });
+
+                    Promise.all(promises).then(rows => {
+                        html += rows.join('');
+                        html += '</tbody></table>';
+
+                        // Set the HTML content in the "itemalternatives" field
+                        frm.set_df_property('item_alternatives', 'options', html);
+                    });
+                } else {
+                    frm.set_df_property('item_alternatives', 'options', '<p>No alternatives found for this item.</p>');
+                }
+            }
+        });
 });
 
 
