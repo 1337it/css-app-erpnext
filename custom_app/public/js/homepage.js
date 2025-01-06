@@ -286,7 +286,7 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
                     const alternatives = response.message;
 
                     // Construct HTML for the alternatives table
-                    let html = '<h4>Item Substitutes</h4><table class="table table-bordered">';
+                    let html = '<h4 style="text-align:center;">Item Substitutes</h4><table class="table table-bordered">';
                     html += '<thead><tr><th>Alternative Item</th><th>Available Quantity</th></tr></thead><tbody>';
 
                     const promises = alternatives.map(alt => {
@@ -313,7 +313,7 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
 			    $(html).prependTo(d);
                     });
                 } else {
-                    $('<p>No alternatives found for this item.</p>').appendTo(d);
+                    $('<h4 style="text-align:center;">Item Substitutes</h4><p>No warehouses available in the system.</p>').appendTo(d);
                 }
             }
         });
