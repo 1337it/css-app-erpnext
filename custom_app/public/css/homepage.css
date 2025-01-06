@@ -1,3 +1,6 @@
+.table td {
+padding: 4px !important;
+}
 [data-route*="/new"] .editable-form .page-wrapper .layout-side-section
 {display:none!important;
 }
