@@ -266,46 +266,6 @@ $("body").attr('overlay-route', '');
 
     }
 });
-
-
- 
-
-
-
-frappe.ui.form.on('Item', "refresh", function(frm) {
-    $('#stocksidebar').remove();
-	const doc = cur_frm.docname;
-      
-            frappe.call({
-                method: 'erpnext.stock.dashboard.item_dashboard.get_data',
-                args: {
-                    item_code: doc,
-                },
-                callback: function(r) {
-                    if (r.message.length > 0){
-                        const d = document.querySelector('[data-page-route="Item"] .layout-side-section');
-                        $(`<div id="stocksidebar">
-                            <h2>Stock Availability</h2>
-                            <table class="table table-bordered">
-                            </table>
-                        </div>`).prependTo(d);
-                        r.message.forEach(element => {
-                            const thead = $(d).find('table');
-                            const th = $(`
-                            <tr>
-                                <th>${element.warehouse}</th>
-				<td>${element.actual_qty}</td>
-                            </tr>
-                            `).appendTo(thead)
- 
-                        });
-                       
-                    }
-                }
-            });   
-});
-
-
 frappe.ui.form.on('Item', "refresh", function(frm) {	
 	if (!frm.doc.name) {
             return;
@@ -350,7 +310,7 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
 
                         // Set the HTML content in the "itemalternatives" field
                         const d = document.querySelector('[data-page-route="Item"] .layout-side-section');
-			    $(html).appendTo(d);
+			    $(html).prependTo(d);
                     });
                 } else {
                     $('<p>No alternatives found for this item.</p>').appendTo(d);
@@ -358,6 +318,95 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
             }
         });
 });
+
+ 
+
+
+
+                       
+frappe.ui.form.on('Item', {
+    refresh: function (frm) {
+        if (frm.doc.item_code) {
+            // Fetch all warehouses
+            frappe.call({
+                method: 'frappe.client.get_list',
+                args: {
+                    doctype: 'Warehouse',
+                    fields: ['name'],
+                    filters: [
+                        ['name', 'like', 'Stores - %'],
+                        ['name', '!=', 'Stores - SASCO']
+                    ],
+                    limit_page_length: 1000
+                },
+                callback: function (warehouse_response) {
+                    if (warehouse_response.message) {
+                        const warehouses = warehouse_response.message;
+
+                        // Fetch item quantities from Bin
+                        frappe.call({
+                            method: 'frappe.client.get_list',
+                            args: {
+                                doctype: 'Bin',
+                                fields: ['warehouse', 'actual_qty'],
+                                filters: {
+                                    item_code: frm.doc.item_code
+                                },
+                                limit_page_length: 1000
+                            },
+                            callback: function (bin_response) {
+                                const bins = bin_response.message || [];
+                                const warehouse_map = {};
+
+                                // Map quantities by warehouse
+                                bins.forEach(bin => {
+                                    warehouse_map[bin.warehouse] = bin.actual_qty;
+                                });
+
+                                // Build the HTML table
+                                let html = `
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Warehouse</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                `;
+
+                                warehouses.forEach(warehouse => {
+                                    const quantity = warehouse_map[warehouse.name] || 0;
+                                    html += `
+                                        <tr>
+                                            <td>${warehouse.name}</td>
+                                            <td>${quantity}</td>
+                                        </tr>
+                                    `;
+                                });
+
+                                html += `
+                                        </tbody>
+                                    </table>
+                                `;
+
+                                // Add or update the custom HTML field
+                   const d = document.querySelector('[data-page-route="Item"] .layout-side-section');
+				     $(html).prependTo(d);
+                            }
+                        });
+                    } else {
+                        
+                    }
+                }
+            });
+        }
+    }
+});
+});
+
+
+
 
 
 
