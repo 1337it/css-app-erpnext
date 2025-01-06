@@ -287,7 +287,6 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
                         $(`<div id="stocksidebar">
                             <h2>Stock Availability</h2>
                             <table class="table table-bordered">
-                          
                             </table>
                         </div>`).prependTo(d);
                         r.message.forEach(element => {
@@ -305,6 +304,8 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
                 }
             });   
 });
+
+
 frappe.ui.form.on('Item', "refresh", function(frm) {	
 	if (!frm.doc.name) {
             return;
