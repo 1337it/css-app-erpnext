@@ -374,7 +374,7 @@ frappe.ui.form.on('Item', {
                                 });
 
                                 // Build the HTML table
-                                let html = `
+                                let html = `<h4 style="text-align:center;">Stock Availability</h4>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -388,13 +388,18 @@ frappe.ui.form.on('Item', {
                                 warehouses.forEach(warehouse => {
                                     const quantity = warehouse_map[warehouse.name] || 0;
 
-                                    // Calculate color based on quantity
-                                    const ratio = max_quantity === min_quantity
-                                        ? 1 // If all quantities are the same, default to green
-                                        : (quantity - min_quantity) / (max_quantity - min_quantity);
-                                    const red = Math.round(255 * (1 - ratio));
-                                    const green = Math.round(255 * ratio);
-                                    const backgroundColor = `rgba(${red}, ${green}, 0, 0.5)`;
+                                    // Determine the row color
+                                    let backgroundColor;
+                                    if (quantity < 10) {
+                                        backgroundColor = `rgba(255, 0, 0, 0.5)`; // Explicit red for quantity < 10
+                                    } else {
+                                        const ratio = max_quantity === min_quantity
+                                            ? 1 // If all quantities are the same, default to green
+                                            : (quantity - min_quantity) / (max_quantity - min_quantity);
+                                        const red = Math.round(255 * (1 - ratio));
+                                        const green = Math.round(255 * ratio);
+                                        backgroundColor = `rgba(${red}, ${green}, 0, 0.5)`;
+                                    }
 
                                     html += `
                                         <tr style="background-color: ${backgroundColor};">
