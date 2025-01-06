@@ -327,7 +327,7 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
 frappe.ui.form.on('Item', {
     refresh: function (frm) {
         if (frm.doc.item_code) {
-            // Fetch all warehouses
+            // Fetch warehouses starting with "Stores - " and exclude "Stores - SASCO"
             frappe.call({
                 method: 'frappe.client.get_list',
                 args: {
@@ -363,8 +363,18 @@ frappe.ui.form.on('Item', {
                                     warehouse_map[bin.warehouse] = bin.actual_qty;
                                 });
 
+                                // Determine the max and min quantities
+                                let max_quantity = 0;
+                                let min_quantity = Infinity;
+
+                                warehouses.forEach(warehouse => {
+                                    const quantity = warehouse_map[warehouse.name] || 0;
+                                    max_quantity = Math.max(max_quantity, quantity);
+                                    min_quantity = Math.min(min_quantity, quantity);
+                                });
+
                                 // Build the HTML table
-                                let html = `<h4>Stock Availability</h4>
+                                let html = `
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -377,8 +387,17 @@ frappe.ui.form.on('Item', {
 
                                 warehouses.forEach(warehouse => {
                                     const quantity = warehouse_map[warehouse.name] || 0;
+
+                                    // Calculate color based on quantity
+                                    const ratio = max_quantity === min_quantity
+                                        ? 1 // If all quantities are the same, default to green
+                                        : (quantity - min_quantity) / (max_quantity - min_quantity);
+                                    const red = Math.round(255 * (1 - ratio));
+                                    const green = Math.round(255 * ratio);
+                                    const backgroundColor = `rgba(${red}, ${green}, 0, 0.5)`;
+
                                     html += `
-                                        <tr>
+                                        <tr style="background-color: ${backgroundColor};">
                                             <td>${warehouse.name}</td>
                                             <td>${quantity}</td>
                                         </tr>
