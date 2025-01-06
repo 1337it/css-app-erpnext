@@ -286,7 +286,7 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
                     const alternatives = response.message;
 
                     // Construct HTML for the alternatives table
-                    let html = '<table class="table table-bordered">';
+                    let html = '<h4>Item Substitutes</h4><table class="table table-bordered">';
                     html += '<thead><tr><th>Alternative Item</th><th>Available Quantity</th></tr></thead><tbody>';
 
                     const promises = alternatives.map(alt => {
@@ -364,7 +364,7 @@ frappe.ui.form.on('Item', {
                                 });
 
                                 // Build the HTML table
-                                let html = `
+                                let html = `<h4>Stock Availability</h4>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
