@@ -2971,19 +2971,9 @@ width: 100%;
 display: none;
 }
 
- [data-route^="Form/"] [data-page-route^="List/"] .page-wrapper .frappe-card .page-form
-{
 
-visibility: hidden;
-}
 
-  [data-route^="Form/"] [data-page-route^="List/"] .page-actions .standard-actions {
-display: none;
-align-items: center;
-}
-[data-route^="Form/"] [data-page-route^="List/"] .page-actions .standard-actions {
-visibility: hidden;
-}
+
     [data-route^="Form/"] [data-page-route^="List/"] .page-head {
         z-index: 4 !important;
         left: 0px;
