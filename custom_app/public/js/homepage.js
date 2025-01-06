@@ -348,10 +348,11 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
                         html += '</tbody></table>';
 
                         // Set the HTML content in the "itemalternatives" field
-                        frm.set_df_property('item_alternatives', 'options', html);
+                        const d = document.querySelector('[data-page-route="Item"] .layout-side-section');
+			    $(html).appendTo(d);
                     });
                 } else {
-                    frm.set_df_property('item_alternatives', 'options', '<p>No alternatives found for this item.</p>');
+                    $('<p>No alternatives found for this item.</p>').appendTo(d);
                 }
             }
         });
