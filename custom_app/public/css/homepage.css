@@ -1851,7 +1851,7 @@ background-color: var(--bg-color);
 color: var(--text-color);
 }
 .form-control {
-border: 1px solid var(--gray-500) !important;
+border-bottom: 1px solid var(--gray-400) !important;
 border-radius: 1px !important;
 }
 .frappe-control[data-fieldtype=Phone] .selected-phone img {
