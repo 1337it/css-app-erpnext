@@ -1,5 +1,6 @@
 .table td {
 padding: 4px !important;
+	color:black;
 }
 [data-route*="/new"] .editable-form .page-wrapper .layout-side-section
 {display:none!important;
