@@ -313,7 +313,7 @@ frappe.ui.form.on('Item', "refresh", function(frm) {
 			    $(html).prependTo(d);
                     });
                 } else {
-                    $('<h4 style="text-align:center;">Item Substitutes</h4><p>No warehouses available in the system.</p>').appendTo(d);
+                    $('<h4 style="text-align:center;">Item Substitutes</h4><p>No substitutes available for this item.</p>').appendTo(d);
                 }
             }
         });
