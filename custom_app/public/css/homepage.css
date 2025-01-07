@@ -986,13 +986,12 @@ text-align: center;
 }
 
 .list-row-container:focus {
-background-color: rgba(151, 222, 212, 0.74) !important;
-transition: 0.5s background-color ease;
+background-color: rgba(53, 218, 195, 0.36) !important;
 }
 
 
 .selecteditem {
-background-color: rgba(151, 222, 212, 0.74) !important;
+background-color: rgba(53, 218, 195, 0.66) !important;
 }
 
 
