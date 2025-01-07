@@ -1046,9 +1046,10 @@ var customer = r1.message[0].customer;
     
 });
 
+if (frappe.get_route()[0] == 'List'){
 
-
-
+$('.frappe-list').attr('style', 'margin-top:'+$('[data-page-route="'+$('body').attr('data-route')+'"] .page-form').height()+'px');
+}
 frappe.ui.keys.add_shortcut({
 	description: "Purchase History",
     shortcut: 'alt+8',
