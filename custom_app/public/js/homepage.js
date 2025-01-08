@@ -429,6 +429,152 @@ frappe.ui.form.on('Item', {
 });
 
 
+frappe.listview_settings['Item'] = {
+
+   	onload: function(listview) {
+console.log("list");
+   	    if($('.modal.show').length == 0)
+      {
+   	          $('#listsidebar').remove();
+     
+var modalstatus = document.querySelector('body[data-route].modal-open') !== null;
+if(!modalstatus)
+{
+           
+$(document).keydown(
+    function(e)
+    {    
+
+
+        if (e.keyCode == 40) { 
+            
+	var doc = $('.list-row-container:focus [data-name]').attr('data-name');
+
+console.log(doc);
+if( $('.standard-filter-section [placeholder]').is(':focus'))
+{
+
+ $('.list-row-container [data-name]')[1].focus();
+}
+
+frappe.call({
+                method: 'frappe.client.get_list',
+                args: {
+                    doctype: 'Warehouse',
+                    fields: ['name'],
+                    filters: [
+                        ['name', 'like', 'Stores - %'],
+                        ['name', '!=', 'Stores - SASCO']
+                    ],
+                    limit_page_length: 1000
+                },
+                callback: function (warehouse_response) {
+                    if (warehouse_response.message) {
+                        const warehouses = warehouse_response.message;
+
+                        // Fetch item quantities from Bin
+                        frappe.call({
+                            method: 'frappe.client.get_list',
+                            args: {
+                                doctype: 'Bin',
+                                fields: ['warehouse', 'actual_qty'],
+                                filters: {
+                                    item_code: doc
+                                },
+                                limit_page_length: 1000
+                            },
+                            callback: function (bin_response) {
+                                const bins = bin_response.message || [];
+                                const warehouse_map = {};
+
+                                // Map quantities by warehouse
+                                bins.forEach(bin => {
+                                    warehouse_map[bin.warehouse] = bin.actual_qty;
+                                });
+
+                                // Determine the max and min quantities
+                                let max_quantity = 0;
+                                let min_quantity = Infinity;
+
+                                warehouses.forEach(warehouse => {
+                                    const quantity = warehouse_map[warehouse.name] || 0;
+                                    max_quantity = Math.max(max_quantity, quantity);
+                                    min_quantity = Math.min(min_quantity, quantity);
+                                });
+
+                                // Build the HTML table
+                                let html = `<h4 style="text-align:center;">Stock Availability</h4>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Warehouse</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                `;
+
+                                warehouses.forEach(warehouse => {
+                                    const quantity = warehouse_map[warehouse.name] || 0;
+
+                                    // Determine the row color
+                                    let backgroundColor;
+                                    if (quantity < 10) {
+                                        backgroundColor = `rgba(255, 0, 0, 0.5)`; // Explicit red for quantity < 10
+                                    } else {
+                                        const ratio = max_quantity === min_quantity
+                                            ? 1 // If all quantities are the same, default to green
+                                            : (quantity - min_quantity) / (max_quantity - min_quantity);
+                                        const red = Math.round(255 * (1 - ratio));
+                                        const green = Math.round(255 * ratio);
+                                        backgroundColor = `rgba(${red}, ${green}, 0, 0.5)`;
+                                    }
+
+                                    html += `
+                                        <tr style="background-color: ${backgroundColor};">
+                                            <td>${warehouse.name}</td>
+                                            <td>${quantity}</td>
+                                        </tr>
+                                    `;
+                                });
+
+                                html += `
+                                        </tbody>
+                                    </table>
+                                `;
+
+                                // Add or update the custom HTML field
+                   const d = document.querySelector('#page-List/Item/List .layout-side-section');
+				     $(html).prependTo(d);
+                            }
+                        });
+                    } else {
+                        
+                    }
+                }
+            });
+
+
+
+ }   
+    
+
+
+   if (e.keyCode == 38) { 
+	var doc = $('.list-row-container:focus [data-name]').attr('data-name');
+console.log("pressed up");
+
+console.log(doc);
+
+
+}
+
+})
+}
+
+}
+   	}	
+};
 
 
 
