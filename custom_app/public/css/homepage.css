@@ -765,12 +765,13 @@ color: var(--text-color);
 }	
 	.col-sm-6 .form-group .control-input-wrapper {
 scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+		width: 66%;
 }
 	.col-sm-6 .form-group {
-margin-bottom: 5px;
-		margin-top: 5px;
+margin-bottom: 0;
+margin-top: 0;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 justify-content: space-between;
 }
 
@@ -2025,8 +2026,8 @@ background-color: var(--bg-color);
 color: var(--text-color);
 }
 .form-control {
-border-bottom: 1px solid var(--gray-400) !important;
-border-radius: 1px !important;
+border: 0.5px solid var(--text-muted) !important;
+border-radius: 0px !important;
 }
 .frappe-control[data-fieldtype=Phone] .selected-phone img {
 height: 25px !important;
