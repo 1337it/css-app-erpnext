@@ -2159,6 +2159,17 @@ border-bottom: 1px none #ccc!important;
  background:none!important;
 background-size: contain!important;
 }
+.grid-row>.row .col:last-child:has(>[data-original-title="Edit"]) {
+    position: absolute;
+    right: 0;
+    width: 50px;
+}
+.col =.grid-static-col.justify-content-center
+{
+    position: absolute;
+    right: 0;
+    width: 50px;
+}
 .frappe-control .grid-row {
     padding: 0;
     padding-left: 50px;
