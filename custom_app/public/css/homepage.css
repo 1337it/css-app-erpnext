@@ -2231,7 +2231,10 @@ input[type=checkbox] {
     border-bottom: 1px solid #0000007a!important;
     transition: .2s!important;
 }
+.grid-heading-row .grid-row>.row .col {
 
+border-right: 0px solid #0000007d!important;
+}
 [data-theme-mode="dark"] .page-head .container .justify-between{
      background:none!important;
 background-size: contain!important;
