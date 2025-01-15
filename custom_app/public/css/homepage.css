@@ -2172,7 +2172,7 @@ background-size: contain!important;
 }
 .frappe-control .grid-row {
     padding: 0;
-    padding-left: 50px;
+    padding-left: 50px!important;
 }
 .sortable-handle.col {
     position: absolute;
@@ -2227,9 +2227,9 @@ input[type=checkbox] {
     border-right: 1px solid #0000007d;
 }
 .grid-row {
-    padding: 0px var(--padding-md);
-    border-bottom: 1px solid #0000007a;
-    transition: .2s;
+    padding: 0px var(--padding-md)!important;
+    border-bottom: 1px solid #0000007a!important;
+    transition: .2s!important;
 }
 
 [data-theme-mode="dark"] .page-head .container .justify-between{
