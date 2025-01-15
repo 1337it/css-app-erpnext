@@ -2159,6 +2159,59 @@ border-bottom: 1px none #ccc!important;
  background:none!important;
 background-size: contain!important;
 }
+.frappe-control .grid-row {
+    padding: 0;
+    padding-left: 50px;
+}
+.sortable-handle.col {
+    position: absolute;
+    left: 0;
+    width: 50px;
+}
+.col-1, .col-xs-1 {
+    flex: 0 0 9.090909%;
+    max-width: 9.0909009%;
+}
+.col-2, .col-xs-2 {
+    flex: 0 0 18.181818%;
+    max-width: 18.181818%;
+}
+.col-3, .col-xs-3 {
+    flex: 0 0 27.272727%;
+    max-width: 27.272727%;
+}
+.col-4, .col-xs-4 {
+	
+    flex: 0 0 36.363636%;
+    max-width: 36.363636%;
+}
+.col-5, .col-xs-5 {
+    flex: 0 0 45.454545%;
+    max-width: 45.454545%;
+}
+.col-6, .col-xs-6 {
+    flex: 0 0 54.545454%;
+    max-width: 54.545454%;
+}
+.col-7, .col-xs-7 {
+    flex: 0 0 63.636363%;
+    max-width: 63.636363%;
+}
+.col-8, .col-xs-8 {
+    flex: 0 0 72.727272%;
+    max-width: 72.727272%;
+}
+input[type=checkbox] {
+    border: 1px solid #00000080;
+    border-radius: 16px;
+    width: calc(8px + var(--checkbox-size)) !important;
+    height: calc(8px + var(--checkbox-size)) !important;
+    margin-top: -2px;
+}
+.grid-heading-row .row-index>span {
+    display: none;
+}
+
 
 [data-theme-mode="dark"] .page-head .container .justify-between{
      background:none!important;
