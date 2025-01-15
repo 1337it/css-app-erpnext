@@ -1043,6 +1043,13 @@ display:none!important;
 [data-route^="Form/"] [data-fieldname="item_code"] .awesomplete>[role=listbox]{
 	filter:brightness(5);
 }
+
+.awesomplete>[role=listbox]
+{
+border-radius: 0;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: 0px solid var(--border-color);
+}
 	.navbar .awesomplete>[role=listbox] {
     position: absolute;
     width: 100%;
@@ -4822,10 +4829,12 @@ font-weight: 300!important;
 [data-route^="List/Task/Kanban"].page-wrapper .layout-main-section{
  height:100%;
 }
-
+.awesomplete > [role="listbox"] > [role="option"]:hover {
+    border-radius: 0;
+}
 
 .awesomplete>[role=listbox]>[role=option][aria-selected=true] {
-background-color: rgba(3, 255, 219, 0.47);
+background-color: rgba(64, 224, 208, 0.48);
 color: #000000;
 border-radius: 0;
 }
