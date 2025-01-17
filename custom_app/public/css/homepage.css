@@ -2232,7 +2232,7 @@ margin-left: -1px;
 }
 .grid-row {
     padding: 0px var(--padding-md)!important;
-    border-bottom: 1px solid #0000007a!important;
+    border-bottom: 0px solid #0000007a!important;
     transition: .2s!important;
 }
 .justify-content-center {
