@@ -563,13 +563,7 @@ margin: 0;
 	padding-right:200px !important;
 padding: 0;
 }
-	
-[data-fieldname="item_code"] [role="listbox"]
-	{
-width: 50vw !important;
-margin: 0;
-padding: 0;
-}
+
 
 	
 [data-route*="/new-"] .editable-form.page-container {
