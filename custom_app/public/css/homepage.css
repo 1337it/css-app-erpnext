@@ -558,8 +558,9 @@ margin-right: 0;
 height: 100% !important;
 }
 [data-fieldname="item_code"] [role="listbox"] {
-width: 50vw !important;
+width: calc(50vw + 200px) !important;
 margin: 0;
+	padding-right:200px !important;
 padding: 0;
 }
 	
