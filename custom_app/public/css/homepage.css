@@ -2180,6 +2180,10 @@ background-size: contain!important;
     left: 0;
     width: 50px;
 }
+.row-check {
+
+z-index: 1;
+}
 .col-1, .col-xs-1 {
     flex: 0 0 9.090909%;
     max-width: 9.0909009%;
@@ -2187,6 +2191,9 @@ background-size: contain!important;
 .col-2, .col-xs-2 {
     flex: 0 0 18.181818%;
     max-width: 18.181818%;
+}
+.grid-heading-row .data-row .ellipsis {
+text-transform: uppercase;
 }
 .col-3, .col-xs-3 {
     flex: 0 0 27.272727%;
