@@ -118,7 +118,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .navbar a {
-  color: white;
+  color: black;
   text-decoration: none;
   margin-right: var(--spacing-medium);
 }
