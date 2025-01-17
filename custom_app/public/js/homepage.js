@@ -618,7 +618,7 @@ var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
                 method: 'frappe.client.get_list',
               args :{
               doctype: 'Stock Ledger Entry',
-			fields: ['voucher_type', 'voucher_no', 'actual_qty', 'qty_after_transaction', 'posting_date'],
+			fields: ['posting_date', 'voucher_type', 'voucher_no', 'actual_qty', 'qty_after_transaction'],
                 filters: [
                     ["item_code", "=",  curr],
                     ["is_cancelled", "=", '0']
