@@ -656,7 +656,7 @@ var dates = r.message.map(function(i) {
     };
 
      const d = new frappe.ui.Dialog({
-                            title: __('Movement Chart'),
+                            title: __('All Transactions'),
                             width: 400
                         });
 			
@@ -668,11 +668,11 @@ var dates = r.message.map(function(i) {
                             <table class="table table-bordered">
                             <thead>
                                 <tr>
+				<th>Date</th>
                                 <th>Voucher Type</th>
                                 <th>Voucher No</th>
 				<th>Qty Change</th>
                                 <th>Qty After Transaction</th>
-				<th>Date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -684,11 +684,11 @@ var dates = r.message.map(function(i) {
                             const tbody = $(d.body).find('tbody');
                             const tr = $(`
                             <tr>
+			    	<td>${element.posting_date}</td>
                                 <td>${element.voucher_type}</td>
                                 <td>${element.voucher_no}</td>
 				<td>${element.actual_qty}</td>
                                 <td>${element.qty_after_transaction}</td>
-				<td>${element.posting_date}</td>
                             </tr>
                             `).appendTo(tbody)
                             tbody.find('.check-warehouse').on('change', function() {
