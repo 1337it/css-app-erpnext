@@ -2234,7 +2234,7 @@ display: none;
 }
 .grid-row>.row .col{
    padding: var(--grid-padding);
-border: 1px solid #0000002b;
+border: 0px solid #0000002b;
 margin-top: -1px;
 margin-bottom: 0px;
 margin-left: -1px;
