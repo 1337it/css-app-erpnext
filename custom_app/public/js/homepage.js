@@ -1487,8 +1487,8 @@ console.log('Path 1 is '+path);
 
 window.onload = function() {
 
-
-if (frappe.get_route()[0] == 'List'){
+var routenow = frappe.get_route()[0] !== null;
+if (routenow == 'List'){
 
 $('.frappe-list').attr('style', 'margin-top:'+$('[data-page-route="'+$('body').attr('data-route')+'"] .page-form').height()+'px');
 }
