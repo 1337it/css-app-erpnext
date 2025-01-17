@@ -2223,6 +2223,12 @@ input[type=checkbox] {
     height: calc(8px + var(--checkbox-size)) !important;
     margin-top: -2px;
 }
+[role="listbox"] ~ #itemmodalsidebar {
+display: block !important;
+}
+#itemmodalsidebar {
+display: none;
+}
 .grid-heading-row .row-index>span {
     display: none;
 }
