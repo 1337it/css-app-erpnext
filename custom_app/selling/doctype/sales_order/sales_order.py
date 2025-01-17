@@ -773,7 +773,9 @@ def get_list_context(context=None):
 			"title": _("Orders"),
 		}
 	)
-
+if "ID" in list_context:
+        list_context["ID"] = None
+	
 	return list_context
 
 
