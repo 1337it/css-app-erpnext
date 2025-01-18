@@ -40,7 +40,6 @@ shortcut: "escape",
       idleCounter = 0;
     }
   }, interval);
-})();
 
 
 if ($('html').attr('data-theme') == 'dark') {
