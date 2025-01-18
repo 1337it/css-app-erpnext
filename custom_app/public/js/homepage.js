@@ -187,7 +187,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
 
            frappe.db.get_value("Item", {"item_code":curr}, "image").then(it => {
@@ -456,7 +456,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
             frappe.call({
                 method: 'frappe.client.get_list',
@@ -589,7 +589,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
             frappe.call({
                 method: 'frappe.client.get_list',
@@ -732,7 +732,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
 
             frappe.call({
@@ -895,7 +895,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
 
             frappe.call({
@@ -1054,7 +1054,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
 
             frappe.call({
@@ -1211,7 +1211,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
 
             frappe.call({
@@ -1332,7 +1332,7 @@ var curr = item_row.item_code;
 }
 else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
 }
 
             frappe.call({
