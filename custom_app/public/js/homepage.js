@@ -158,7 +158,7 @@ $("body").attr('overlay-route', '');
 });
 
 frappe.ui.keys.add_shortcut({
-    shortcut: 'alt+i',
+    shortcut: 'ctrl+i',
     action: () => { 
 
 
