@@ -2232,6 +2232,16 @@ display: none;
 .grid-heading-row .row-index>span {
     display: none;
 }
+.awesomplete>[role=listbox]>li:not(:last-child), .awesomplete>[role=listbox]>[role=option]:not(:last-child) {
+margin-bottom: var(--margin-xs);
+font-size: 12px;
+padding: 2px;
+}
+.grid-body .editable-row {
+--control-bg: var(--neutral);
+--input-disabled-bg: var(--gray-50);
+border-bottom: 1px solid rgba(0, 255, 219, 1) !important;
+}
 .grid-row>.row .col{
    padding: var(--grid-padding);
 border-right: 1px solid #0000002b;
