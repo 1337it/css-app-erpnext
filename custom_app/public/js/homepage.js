@@ -207,9 +207,9 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
 
            frappe.db.get_value("Item", {"item_code":curr}, "image").then(it => {
@@ -476,9 +476,9 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
             frappe.call({
                 method: 'frappe.client.get_list',
@@ -609,11 +609,10 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
-
             frappe.call({
                 method: 'frappe.client.get_list',
               args :{
@@ -753,9 +752,9 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
 
             frappe.call({
@@ -916,9 +915,9 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
 
             frappe.call({
@@ -1075,9 +1074,9 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
 
             frappe.call({
@@ -1232,9 +1231,9 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' &&$('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
 
             frappe.call({
@@ -1353,9 +1352,9 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length == 1)
+else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
 {
-var curr = $('.modal input[type=checkbox]:checked').attr('data-item-name');
+var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] [title]').attr('title');
 }
 
             frappe.call({
