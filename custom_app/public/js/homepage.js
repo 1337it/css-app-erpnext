@@ -178,7 +178,7 @@ var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
@@ -395,7 +395,7 @@ if (frappe.get_route()[0] == 'List' && frappe.get_route()[1] == 'Item')
 var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
@@ -528,7 +528,7 @@ var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
@@ -671,7 +671,7 @@ var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
@@ -834,7 +834,7 @@ var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
@@ -993,7 +993,7 @@ var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
@@ -1150,7 +1150,7 @@ var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
@@ -1271,7 +1271,7 @@ var curr = $('.list-row-container:focus [data-name]').attr('data-name');
 var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
 	
 }
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#queryitem:visible').length != 1) 
+	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
 {
 const current_doc = $('.data-row.editable-row').parent().attr("data-name");
 	      const curdoc = (cur_frm.doctype + " Item");
