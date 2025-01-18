@@ -34,12 +34,6 @@ shortcut: "escape",
 }
 });
 
-  window.setInterval(function() {
-    if (++idleCounter >= timeout) {
-      document.documentElement.classList.add('nidle');
-      idleCounter = 0;
-    }
-  }, interval);
 
 
 if ($('html').attr('data-theme') == 'dark') {
