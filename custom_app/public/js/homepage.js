@@ -185,10 +185,7 @@ const current_doc = $('.data-row.editable-row').parent().attr("data-name");
  const item_row = locals[curdoc][current_doc];
 var curr = item_row.item_code;
 }
-else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 1)
-{
-var curr = $('[role="listbox"]:not([hidden]) [role="option"][aria-selected="true"] .col-xs-2')[0].innerText;
-}
+
 
            frappe.db.get_value("Item", {"item_code":curr}, "image").then(it => {
                         const d = new frappe.ui.Dialog({
