@@ -1346,13 +1346,17 @@ console.log('Path 1 is '+path);
 });
 
 window.onload = function() {
+	setTimeout(() => {
 
+
+if(frappe.get_route()[0]){
 var routenow = frappe.get_route()[0] !== null;
 if (routenow == 'List'){
 
 $('.frappe-list').attr('style', 'margin-top:'+$('[data-page-route="'+$('body').attr('data-route')+'"] .page-form').height()+'px');
 }
-
+}
+}, 10);
 	
 
 	$('input#navbar-search').attr('placeholder', 'Search or type a command (ctrl + space)');
