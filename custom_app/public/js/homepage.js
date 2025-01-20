@@ -157,70 +157,7 @@ $("body").attr('overlay-route', '');
 }
 });
 
-frappe.ui.keys.add_shortcut({
-    shortcut: 'ctrl+i',
-    action: () => { 
 
-
-      var checkmodal = $('body[data-route]').hasClass('modal-open');  
-
-
-           
-if (frappe.get_route()[0] == 'List' && frappe.get_route()[1] == 'Item') 
-{
-
-var curr = $('.list-row-container:focus [data-name]').attr('data-name');
-	
-}
-	else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Item') 
-{
-
-var curr = $('[data-page-route="Item"] .ellipsis.title-text').attr('title');
-	
-}
-	    else if (frappe.get_route()[0] == 'Form' && frappe.get_route()[1] == 'Sales Order' && $('#itemmodalsidebar:visible').length == 0) 
-{
-const current_doc = $('.data-row.editable-row').parent().attr("data-name");
-	      const curdoc = (cur_frm.doctype + " Item");
- const item_row = locals[curdoc][current_doc];
-var curr = item_row.item_code;
-}
-
-
-           frappe.db.get_value("Item", {"item_code":curr}, "image").then(it => {
-                        const d = new frappe.ui.Dialog({
-                            title: __('Item Image'),
-                            width: 400
-                        });
-		   if(it.message.image)
-		   {
-                        $(`<img src="${it.message.image}" style="max-height:300px;max-width:300px;margin-left:auto;margin-right:auto;display:block;">`).appendTo(d.body);
-		   }
-else {
-$(`<a>Image Not Available</a>`).appendTo(d.body);
-}
-
-
-
-                      
-			     frappe.ui.keys.on('escape', function() {
-     d.hide();
-				$('[data-name="'+curr+'"]').parent().parent().parent().parent().parent().focus();
-});
-                        d.set_primary_action("Close", function() {
-       d.hide();
-				$('[data-name="'+curr+'"]').parent().parent().parent().parent().parent().focus();
-                        });
-                        d.show();  
-                         d.$wrapper.find('.modal-dialog').css("width", "90%");
-            
-            });     
-    },
-    page: this.page,
-    description: __('Item Image'),
-    ignore_inputs: true,
-    
-});
 
 frappe.ui.keys.add_shortcut({
 	description: "Open Chat",
