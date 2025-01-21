@@ -24,3 +24,17 @@ def sync_stock():
         item.save()
 
     frappe.log("Stock quantity sync complete.")
+
+
+@frappe.whitelist()
+def get_warehouse_list():
+    warehouses = frappe.db.get_list(
+        'Warehouse',
+        fields=['name'],
+        filters=[
+            ['name', 'like', 'Stores - %'],
+            ['name', '!=', 'Stores - SASCO']
+        ],
+        limit_page_length=1000
+    )
+    return warehouses
